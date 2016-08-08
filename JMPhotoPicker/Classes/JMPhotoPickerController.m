@@ -489,7 +489,8 @@
                 rectTransform = CGAffineTransformIdentity;
         };
         visibleRect = CGRectApplyAffineTransform(visibleRect, CGAffineTransformScale(rectTransform, img.scale, img.scale));
-        
+        visibleRect = CGRectMake(ceilf(visibleRect.origin.x), ceilf(visibleRect.origin.y), floorf(visibleRect.size.width), floorf(visibleRect.size.height));
+
         CGImageRef refImage = CGImageCreateWithImageInRect([self.imageViewPhoto.image CGImage], visibleRect);
         UIImage *imageCaptured = [[UIImage alloc] initWithCGImage:refImage scale:self.imageViewPhoto.image.scale orientation:self.imageViewPhoto.image.imageOrientation];
         CGImageRelease(refImage);
