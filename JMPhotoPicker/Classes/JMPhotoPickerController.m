@@ -29,6 +29,7 @@
 #import "JMPPUtils.h"
 #import "MBProgressHUD.h"
 #import "JMPPStrings.h"
+#import "JMPPError.h"
 
 #define rad(angle)              ((angle) / 180.0 * M_PI)
 
@@ -76,7 +77,7 @@
 @property (nonatomic, strong) JMPPAlbum *currentAlbum;
 @property (nonatomic, copy) NSString *currentImageIdentifier;
 
-- (IBAction)actionDone:(id)sender;
+- (IBAction)actionCancel:(id)sender;
 - (IBAction)actionSelectImage:(id)sender;
 - (IBAction)actionSelectDataSource:(id)sender;
 - (IBAction)actionMoreAlbums:(id)sender;
@@ -101,19 +102,20 @@
 #pragma mark Class Methods
 ////////////////////////////////////////////////////////////////
 
-+ (void)presentWithViewController:(UIViewController *)viewController andFacebookId:(NSString *)facebookId andInstagramId:(NSString *)instagramId andInstagramRedirect:(NSString *)instagramRedirect andCompletionBlock:(CompletionBlock)completionBlock
++ (void)presentWithViewController:(UIViewController *)viewController andFacebookId:(NSString *)facebookId andInstagramId:(NSString *)instagramId andInstagramRedirect:(NSString *)instagramRedirect andSuccess:(JMPPSuccess)successBlock andFailure:(JMPPFailure)failureBlock;
 {
-    [JMPhotoPickerController presentWithViewController:viewController andFacebookId:facebookId andInstagramId:instagramId andInstagramRedirect:instagramRedirect andInstagramSandboxMode:NO andCompletionBlock:completionBlock];
+    [JMPhotoPickerController presentWithViewController:viewController andFacebookId:facebookId andInstagramId:instagramId andInstagramRedirect:instagramRedirect andInstagramSandboxMode:NO andSuccess:successBlock andFailure:failureBlock];
 }
 
-+ (void)presentWithViewController:(UIViewController *)viewController andFacebookId:(NSString *)facebookId andInstagramId:(NSString *)instagramId andInstagramRedirect:(NSString *)instagramRedirect andInstagramSandboxMode:(BOOL)instagramSandboxMode andCompletionBlock:(CompletionBlock)completionBlock
++ (void)presentWithViewController:(UIViewController *)viewController andFacebookId:(NSString *)facebookId andInstagramId:(NSString *)instagramId andInstagramRedirect:(NSString *)instagramRedirect andInstagramSandboxMode:(BOOL)instagramSandboxMode andSuccess:(JMPPSuccess)successBlock andFailure:(JMPPFailure)failureBlock;
 {
     JMPhotoPickerController *picker = [[JMPhotoPickerController alloc] init];
     [picker setFacebookId:facebookId];
     [picker setInstagramId:instagramId];
     [picker setInstagramRedirect:instagramRedirect];
     [picker setInstagramSandboxMode:instagramSandboxMode];
-    [picker setCompletionBlock:completionBlock];
+    [picker setSuccessBlock:successBlock];
+    [picker setFailureBlock:failureBlock];
     [viewController presentViewController:picker animated:YES completion:nil];
 }
 
@@ -179,13 +181,14 @@
     //load the folders for the current data source
     [self showSelectedDataSourceButton:self.buttonLibrary];
     [self loadAlbumsWithSuccess:nil andFailure:^(NSError *error) {
+        
         [JMPPUtils logDebug:@"JMPhotoPickerController::viewDidLoad - Failed to load photo library: %@", error.localizedDescription];
-        if (self.completionBlock) self.completionBlock(nil);
         dispatch_async(dispatch_get_main_queue(), ^ {
             [self dismissViewControllerAnimated:YES completion:^{
-                [JMPPUtils showAlert:kErrMsgLibDenied];
+                if (self.failureBlock) self.failureBlock(error);
             }];
-        });        
+        });
+        
     }];
 }
 
@@ -317,23 +320,33 @@
 #pragma mark Action Methods
 ////////////////////////////////////////////////////////////////
 
-- (IBAction)actionDone:(id)sender
+- (IBAction)actionCancel:(id)sender
 {
     //ensure main thread for UI operations
     if (![NSThread isMainThread]) {
-        dispatch_async(dispatch_get_main_queue(), ^ { [self actionDone:sender]; });
+        dispatch_async(dispatch_get_main_queue(), ^ { [self actionCancel:sender]; });
         return;
     }
 
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:^{
+        if (self.failureBlock) self.failureBlock([JMPPError errorUserCanceled]);
+    }];
 }
 
 - (IBAction)actionSelectImage:(id)sender
 {
-    if (self.completionBlock && self.imageViewPhoto.image) {
-        self.completionBlock([self captureImage]);
+    //ensure main thread for UI operations
+    if (![NSThread isMainThread]) {
+        dispatch_async(dispatch_get_main_queue(), ^ { [self actionSelectImage:sender]; });
+        return;
     }
-    [self actionDone:nil];
+
+    UIImage *image;
+    if (self.imageViewPhoto.image) image = [self captureImage];
+    
+    [self dismissViewControllerAnimated:YES completion:^{
+        if (self.successBlock) self.successBlock(image);
+    }];
 }
 
 - (IBAction)actionSelectDataSource:(id)sender

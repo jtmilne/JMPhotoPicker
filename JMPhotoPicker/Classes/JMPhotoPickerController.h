@@ -39,10 +39,11 @@
 @property (nonatomic, copy) NSString *instagramId;
 @property (nonatomic, copy) NSString *instagramRedirect;
 @property (nonatomic) BOOL instagramSandboxMode;
-@property (nonatomic, copy) CompletionBlock completionBlock;
+@property (nonatomic, copy) JMPPSuccess successBlock;
+@property (nonatomic, copy) JMPPFailure failureBlock;
 
-+ (void)presentWithViewController:(UIViewController *)viewController andFacebookId:(NSString *)facebookId andInstagramId:(NSString *)instagramId andInstagramRedirect:(NSString *)instagramRedirect andCompletionBlock:(CompletionBlock)completionBlock;
++ (void)presentWithViewController:(UIViewController *)viewController andFacebookId:(NSString *)facebookId andInstagramId:(NSString *)instagramId andInstagramRedirect:(NSString *)instagramRedirect andSuccess:(JMPPSuccess)successBlock andFailure:(JMPPFailure)failureBlock;
 
-+ (void)presentWithViewController:(UIViewController *)viewController andFacebookId:(NSString *)facebookId andInstagramId:(NSString *)instagramId andInstagramRedirect:(NSString *)instagramRedirect andInstagramSandboxMode:(BOOL)instagramSandboxMode andCompletionBlock:(CompletionBlock)completionBlock;
++ (void)presentWithViewController:(UIViewController *)viewController andFacebookId:(NSString *)facebookId andInstagramId:(NSString *)instagramId andInstagramRedirect:(NSString *)instagramRedirect andInstagramSandboxMode:(BOOL)instagramSandboxMode andSuccess:(JMPPSuccess)successBlock andFailure:(JMPPFailure)failureBlock;
 
 @end

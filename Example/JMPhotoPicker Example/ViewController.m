@@ -21,6 +21,7 @@
 
 #import "ViewController.h"
 #import "JMPhotoPickerController.h"
+#import "JMPPUtils.h"
 
 //********UPDATE CREDENTIALS********
 
@@ -44,21 +45,11 @@
 
 - (IBAction)actionJMPhotoPicker:(id)sender
 {
-    [JMPhotoPickerController presentWithViewController:self andFacebookId:kFacebookId andInstagramId:kInstagramId andInstagramRedirect:kInstagramRedirect andInstagramSandboxMode:kInstagramSandbox andCompletionBlock:^(UIImage *image) {
+    [JMPhotoPickerController presentWithViewController:self andFacebookId:kFacebookId andInstagramId:kInstagramId andInstagramRedirect:kInstagramRedirect andInstagramSandboxMode:kInstagramSandbox andSuccess:^(UIImage *image) {
         if (image) [self.imageView setImage:image];
+    } andFailure:^(NSError *error) {
+        [JMPPUtils showAlert:error.localizedDescription];
     }];
-
-    /*
-    JMPhotoPickerController *photoPicker = [[JMPhotoPickerController alloc] init];
-    [photoPicker setFacebookId:kFacebookId];
-    [photoPicker setInstagramId:kInstagramId];
-    [photoPicker setInstagramRedirect:kInstagramRedirect];
-    [photoPicker setInstagramSandboxMode:kInstagramSandbox];
-    [photoPicker setCompletionBlock:^(UIImage *image) {
-        if (image) [self.imageView setImage:image];
-    }];
-    [self presentViewController:photoPicker animated:YES completion:NULL];
-     */
 }
 
 @end

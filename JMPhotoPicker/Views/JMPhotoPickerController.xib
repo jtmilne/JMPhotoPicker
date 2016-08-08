@@ -44,7 +44,7 @@
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
-                                <action selector="actionDone:" destination="-1" eventType="touchUpInside" id="IZp-hd-tdO"/>
+                                <action selector="actionCancel:" destination="-1" eventType="touchUpInside" id="W6I-wa-Yf0"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ufw-oi-V9M" userLabel="buttonSelect">

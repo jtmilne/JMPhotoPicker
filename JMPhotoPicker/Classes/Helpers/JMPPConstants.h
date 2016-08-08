@@ -22,7 +22,6 @@
 
 typedef void (^JMPPSuccess)(id result);
 typedef void (^JMPPFailure)(NSError *error);
-typedef void (^CompletionBlock)(UIImage *image);
 
 #define kErrorDomain            @"com.jm.photopicker"
 #define kErrorCodeCanceled      100
