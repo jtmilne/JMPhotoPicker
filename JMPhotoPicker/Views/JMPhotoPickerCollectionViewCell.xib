@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="JMPhotoPickerCollectionCell" id="MP1-Yl-Qtx" customClass="JMPhotoPickerCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dl1-K3-YMo" userLabel="viewPhoto">
+                        <rect key="frame" x="1" y="1" width="98" height="98"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ILT-3q-tww" userLabel="imageViewPhoto">
+                                <rect key="frame" x="0.0" y="0.0" width="98" height="98"/>
+                                <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="3jw-zc-2df" userLabel="activityIndicator">
+                                <rect key="frame" x="39" y="39" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3jw-zc-2df" firstAttribute="centerX" secondItem="Dl1-K3-YMo" secondAttribute="centerX" id="35d-RR-nIB"/>
+                            <constraint firstItem="ILT-3q-tww" firstAttribute="leading" secondItem="Dl1-K3-YMo" secondAttribute="leading" id="732-eE-hxn"/>
+                            <constraint firstAttribute="bottom" secondItem="ILT-3q-tww" secondAttribute="bottom" id="9Xp-28-krj"/>
+                            <constraint firstItem="3jw-zc-2df" firstAttribute="centerY" secondItem="Dl1-K3-YMo" secondAttribute="centerY" id="PcC-qv-865"/>
+                            <constraint firstAttribute="trailing" secondItem="ILT-3q-tww" secondAttribute="trailing" id="XH2-AD-SoY"/>
+                            <constraint firstItem="ILT-3q-tww" firstAttribute="top" secondItem="Dl1-K3-YMo" secondAttribute="top" id="eQD-dh-vXH"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Dl1-K3-YMo" secondAttribute="bottom" constant="1" id="5Df-dz-lh4"/>
+                <constraint firstItem="Dl1-K3-YMo" firstAttribute="top" secondItem="MP1-Yl-Qtx" secondAttribute="top" constant="1" id="Ifq-lJ-otV"/>
+                <constraint firstItem="Dl1-K3-YMo" firstAttribute="leading" secondItem="MP1-Yl-Qtx" secondAttribute="leading" constant="1" id="Rm4-lB-mF4"/>
+                <constraint firstAttribute="trailing" secondItem="Dl1-K3-YMo" secondAttribute="trailing" constant="1" id="tck-3j-w5v"/>
+            </constraints>
+            <size key="customSize" width="209" height="178"/>
+            <connections>
+                <outlet property="activityIndicator" destination="3jw-zc-2df" id="61D-T9-6Qb"/>
+                <outlet property="constraintImageBottom" destination="9Xp-28-krj" id="dXz-Rn-3xF"/>
+                <outlet property="constraintImageLeading" destination="732-eE-hxn" id="5gZ-jA-EyK"/>
+                <outlet property="constraintImageTop" destination="eQD-dh-vXH" id="2Tm-vV-Gmw"/>
+                <outlet property="constraintImageTrailing" destination="XH2-AD-SoY" id="edZ-hN-FlI"/>
+                <outlet property="imageViewPhoto" destination="ILT-3q-tww" id="6Ku-G6-nKa"/>
+                <outlet property="viewPhoto" destination="Dl1-K3-YMo" id="lcN-es-f72"/>
+            </connections>
+            <point key="canvasLocation" x="-13" y="117"/>
+        </collectionViewCell>
+    </objects>
+</document>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ius-2c-Pfa">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7cU-JR-ph7">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="7cU-JR-ph7" firstAttribute="top" secondItem="Ius-2c-Pfa" secondAttribute="top" constant="10" id="DmL-hC-7iA"/>
+                                    <constraint firstAttribute="width" secondItem="Ius-2c-Pfa" secondAttribute="height" multiplier="1:1" id="GIL-m4-zfu"/>
+                                    <constraint firstItem="7cU-JR-ph7" firstAttribute="leading" secondItem="Ius-2c-Pfa" secondAttribute="leading" constant="10" id="YhB-mf-bQ0"/>
+                                    <constraint firstAttribute="bottom" secondItem="7cU-JR-ph7" secondAttribute="bottom" constant="10" id="j3S-7u-uPS"/>
+                                    <constraint firstAttribute="trailing" secondItem="7cU-JR-ph7" secondAttribute="trailing" constant="10" id="uSp-mq-5kC"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="7cU-JR-ph7"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <exclude reference="GIL-m4-zfu"/>
+                                        <exclude reference="uSp-mq-5kC"/>
+                                        <exclude reference="DmL-hC-7iA"/>
+                                        <exclude reference="j3S-7u-uPS"/>
+                                        <exclude reference="YhB-mf-bQ0"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="subviews">
+                                        <include reference="7cU-JR-ph7"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <include reference="GIL-m4-zfu"/>
+                                        <include reference="uSp-mq-5kC"/>
+                                        <include reference="DmL-hC-7iA"/>
+                                        <include reference="j3S-7u-uPS"/>
+                                        <include reference="YhB-mf-bQ0"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u6a-WN-6Mg">
+                                <rect key="frame" x="248" y="40" width="104" height="30"/>
+                                <state key="normal" title="JMPhotoPicker"/>
+                                <connections>
+                                    <action selector="actionJMPhotoPicker:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jrz-zH-DDc"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="u6a-WN-6Mg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4yH-fy-2sr"/>
+                            <constraint firstItem="u6a-WN-6Mg" firstAttribute="centerY" secondItem="Ius-2c-Pfa" secondAttribute="top" multiplier="0.5" id="8b5-a2-FK5"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Ius-2c-Pfa" secondAttribute="bottom" id="9c0-aq-wlZ"/>
+                            <constraint firstItem="Ius-2c-Pfa" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="LQS-Ga-7fx"/>
+                            <constraint firstItem="Ius-2c-Pfa" firstAttribute="width" secondItem="Ius-2c-Pfa" secondAttribute="height" multiplier="1:1" id="jD1-Ua-O60"/>
+                            <constraint firstAttribute="trailing" secondItem="Ius-2c-Pfa" secondAttribute="trailing" id="r48-1q-Rju"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Ius-2c-Pfa"/>
+                                <exclude reference="u6a-WN-6Mg"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="4yH-fy-2sr"/>
+                                <exclude reference="8b5-a2-FK5"/>
+                                <exclude reference="LQS-Ga-7fx"/>
+                                <exclude reference="jD1-Ua-O60"/>
+                                <exclude reference="r48-1q-Rju"/>
+                                <exclude reference="9c0-aq-wlZ"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="Ius-2c-Pfa"/>
+                                <include reference="u6a-WN-6Mg"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="4yH-fy-2sr"/>
+                                <include reference="8b5-a2-FK5"/>
+                                <include reference="LQS-Ga-7fx"/>
+                                <include reference="jD1-Ua-O60"/>
+                                <include reference="r48-1q-Rju"/>
+                                <include reference="9c0-aq-wlZ"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="7cU-JR-ph7" id="6j7-c8-bnL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
