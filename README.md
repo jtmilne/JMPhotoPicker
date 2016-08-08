@@ -14,7 +14,7 @@ A modern iOS photo picker, to pick photos from Photo Library, Facebook and Insta
 ##Installation
 Add JMPhotoPicker directory to your project. 
 
-##Installation
+##Usage
 See example project. 
 
 ## Acknowledgments
