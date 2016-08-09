@@ -12,7 +12,7 @@ A modern iOS photo picker, to pick photos from Photo Library, Facebook and Insta
 - Minimal third party library dependency (No AFNetworking, no FB SDK, no InstagramKit, etc)
 
 ##Screenshots
-![screenshot](https://drive.google.com/file/d/0ByjBluEWREBpb3k2Mm9KYWktMDg/view?usp=sharing “Screenshot”)
+![screenshot](http://i1262.photobucket.com/albums/ii605/Joel_Milne/JMPhotoPicker_zpsnjljna5e.png “Screenshot”)
 
 ##Installation
 Add JMPhotoPicker directory to your project. 
