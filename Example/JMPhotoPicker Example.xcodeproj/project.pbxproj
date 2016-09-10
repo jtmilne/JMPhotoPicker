@@ -1,0 +1,569 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F5D7D70F1D54534600AC6E25 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D7D70E1D54534600AC6E25 /* main.m */; };
+		F5D7D7121D54534600AC6E25 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D7D7111D54534600AC6E25 /* AppDelegate.m */; };
+		F5D7D7151D54534600AC6E25 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D7D7141D54534600AC6E25 /* ViewController.m */; };
+		F5D7D7181D54534600AC6E25 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5D7D7161D54534600AC6E25 /* Main.storyboard */; };
+		F5D7D71A1D54534600AC6E25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5D7D7191D54534600AC6E25 /* Assets.xcassets */; };
+		F5D7D71D1D54534600AC6E25 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5D7D71B1D54534600AC6E25 /* LaunchScreen.storyboard */; };
+		F5D7D7691D5454DB00AC6E25 /* JMPPDataSourceFacebook.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D7D7281D5454DB00AC6E25 /* JMPPDataSourceFacebook.m */; };
+		F5D7D76A1D5454DB00AC6E25 /* JMPPDataSourceInstagram.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D7D72A1D5454DB00AC6E25 /* JMPPDataSourceInstagram.m */; };
+		F5D7D76B1D5454DB00AC6E25 /* JMPPDataSourceLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D7D72C1D5454DB00AC6E25 /* JMPPDataSourceLibrary.m */; };
+		F5D7D76C1D5454DB00AC6E25 /* JMPPError.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D7D7301D5454DB00AC6E25 /* JMPPError.m */; };
+		F5D7D76D1D5454DB00AC6E25 /* JMPPUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D7D7331D5454DB00AC6E25 /* JMPPUtils.m */; };
+		F5D7D76E1D5454DB00AC6E25 /* JMPhotoPickerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D7D7351D5454DB00AC6E25 /* JMPhotoPickerCollectionViewCell.m */; };
+		F5D7D76F1D5454DB00AC6E25 /* JMPhotoPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D7D7371D5454DB00AC6E25 /* JMPhotoPickerController.m */; };
+		F5D7D7701D5454DB00AC6E25 /* JMPhotoPickerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D7D7391D5454DB00AC6E25 /* JMPhotoPickerTableViewCell.m */; };
+		F5D7D7711D5454DB00AC6E25 /* JMPPAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D7D73C1D5454DB00AC6E25 /* JMPPAlbum.m */; };
+		F5D7D7721D5454DB00AC6E25 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D7D7401D5454DB00AC6E25 /* MBProgressHUD.m */; };
+		F5D7D7731D5454DB00AC6E25 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D7D7431D5454DB00AC6E25 /* MKAnnotationView+WebCache.m */; };
+		F5D7D7741D5454DB00AC6E25 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D7D7451D5454DB00AC6E25 /* NSData+ImageContentType.m */; };
+		F5D7D7751D5454DB00AC6E25 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D7D7471D5454DB00AC6E25 /* SDImageCache.m */; };
+		F5D7D7761D5454DB00AC6E25 /* SDWebImageCompat.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D7D7491D5454DB00AC6E25 /* SDWebImageCompat.m */; };
+		F5D7D7771D5454DB00AC6E25 /* SDWebImageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D7D74B1D5454DB00AC6E25 /* SDWebImageDecoder.m */; };
+		F5D7D7781D5454DB00AC6E25 /* SDWebImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D7D74D1D5454DB00AC6E25 /* SDWebImageDownloader.m */; };
+		F5D7D7791D5454DB00AC6E25 /* SDWebImageDownloaderOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D7D74F1D5454DB00AC6E25 /* SDWebImageDownloaderOperation.m */; };
+		F5D7D77A1D5454DB00AC6E25 /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D7D7511D5454DB00AC6E25 /* SDWebImageManager.m */; };
+		F5D7D77B1D5454DB00AC6E25 /* SDWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D7D7541D5454DB00AC6E25 /* SDWebImagePrefetcher.m */; };
+		F5D7D77C1D5454DB00AC6E25 /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D7D7561D5454DB00AC6E25 /* UIButton+WebCache.m */; };
+		F5D7D77D1D5454DB00AC6E25 /* UIImage+GIF.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D7D7581D5454DB00AC6E25 /* UIImage+GIF.m */; };
+		F5D7D77E1D5454DB00AC6E25 /* UIImage+MultiFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D7D75A1D5454DB00AC6E25 /* UIImage+MultiFormat.m */; };
+		F5D7D77F1D5454DB00AC6E25 /* UIImage+WebP.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D7D75C1D5454DB00AC6E25 /* UIImage+WebP.m */; };
+		F5D7D7801D5454DB00AC6E25 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D7D75E1D5454DB00AC6E25 /* UIImageView+HighlightedWebCache.m */; };
+		F5D7D7811D5454DB00AC6E25 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D7D7601D5454DB00AC6E25 /* UIImageView+WebCache.m */; };
+		F5D7D7821D5454DB00AC6E25 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D7D7621D5454DB00AC6E25 /* UIView+WebCacheOperation.m */; };
+		F5D7D7831D5454DB00AC6E25 /* JMPhotoPicker.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5D7D7641D5454DB00AC6E25 /* JMPhotoPicker.xcassets */; };
+		F5D7D7841D5454DB00AC6E25 /* JMPhotoPickerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5D7D7661D5454DB00AC6E25 /* JMPhotoPickerCollectionViewCell.xib */; };
+		F5D7D7851D5454DB00AC6E25 /* JMPhotoPickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5D7D7671D5454DB00AC6E25 /* JMPhotoPickerController.xib */; };
+		F5D7D7861D5454DB00AC6E25 /* JMPhotoPickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5D7D7681D5454DB00AC6E25 /* JMPhotoPickerTableViewCell.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F5D7D70A1D54534600AC6E25 /* JMPhotoPicker Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "JMPhotoPicker Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5D7D70E1D54534600AC6E25 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F5D7D7101D54534600AC6E25 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F5D7D7111D54534600AC6E25 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F5D7D7131D54534600AC6E25 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		F5D7D7141D54534600AC6E25 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F5D7D7171D54534600AC6E25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F5D7D7191D54534600AC6E25 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F5D7D71C1D54534600AC6E25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F5D7D71E1D54534600AC6E25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F5D7D7271D5454DB00AC6E25 /* JMPPDataSourceFacebook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMPPDataSourceFacebook.h; sourceTree = "<group>"; };
+		F5D7D7281D5454DB00AC6E25 /* JMPPDataSourceFacebook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMPPDataSourceFacebook.m; sourceTree = "<group>"; };
+		F5D7D7291D5454DB00AC6E25 /* JMPPDataSourceInstagram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMPPDataSourceInstagram.h; sourceTree = "<group>"; };
+		F5D7D72A1D5454DB00AC6E25 /* JMPPDataSourceInstagram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMPPDataSourceInstagram.m; sourceTree = "<group>"; };
+		F5D7D72B1D5454DB00AC6E25 /* JMPPDataSourceLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMPPDataSourceLibrary.h; sourceTree = "<group>"; };
+		F5D7D72C1D5454DB00AC6E25 /* JMPPDataSourceLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMPPDataSourceLibrary.m; sourceTree = "<group>"; };
+		F5D7D72E1D5454DB00AC6E25 /* JMPPConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMPPConstants.h; sourceTree = "<group>"; };
+		F5D7D72F1D5454DB00AC6E25 /* JMPPError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMPPError.h; sourceTree = "<group>"; };
+		F5D7D7301D5454DB00AC6E25 /* JMPPError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMPPError.m; sourceTree = "<group>"; };
+		F5D7D7311D5454DB00AC6E25 /* JMPPStrings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMPPStrings.h; sourceTree = "<group>"; };
+		F5D7D7321D5454DB00AC6E25 /* JMPPUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMPPUtils.h; sourceTree = "<group>"; };
+		F5D7D7331D5454DB00AC6E25 /* JMPPUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMPPUtils.m; sourceTree = "<group>"; };
+		F5D7D7341D5454DB00AC6E25 /* JMPhotoPickerCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMPhotoPickerCollectionViewCell.h; sourceTree = "<group>"; };
+		F5D7D7351D5454DB00AC6E25 /* JMPhotoPickerCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMPhotoPickerCollectionViewCell.m; sourceTree = "<group>"; };
+		F5D7D7361D5454DB00AC6E25 /* JMPhotoPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMPhotoPickerController.h; sourceTree = "<group>"; };
+		F5D7D7371D5454DB00AC6E25 /* JMPhotoPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMPhotoPickerController.m; sourceTree = "<group>"; };
+		F5D7D7381D5454DB00AC6E25 /* JMPhotoPickerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMPhotoPickerTableViewCell.h; sourceTree = "<group>"; };
+		F5D7D7391D5454DB00AC6E25 /* JMPhotoPickerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMPhotoPickerTableViewCell.m; sourceTree = "<group>"; };
+		F5D7D73B1D5454DB00AC6E25 /* JMPPAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMPPAlbum.h; sourceTree = "<group>"; };
+		F5D7D73C1D5454DB00AC6E25 /* JMPPAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMPPAlbum.m; sourceTree = "<group>"; };
+		F5D7D73F1D5454DB00AC6E25 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		F5D7D7401D5454DB00AC6E25 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		F5D7D7421D5454DB00AC6E25 /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
+		F5D7D7431D5454DB00AC6E25 /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
+		F5D7D7441D5454DB00AC6E25 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
+		F5D7D7451D5454DB00AC6E25 /* NSData+ImageContentType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+ImageContentType.m"; sourceTree = "<group>"; };
+		F5D7D7461D5454DB00AC6E25 /* SDImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDImageCache.h; sourceTree = "<group>"; };
+		F5D7D7471D5454DB00AC6E25 /* SDImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDImageCache.m; sourceTree = "<group>"; };
+		F5D7D7481D5454DB00AC6E25 /* SDWebImageCompat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageCompat.h; sourceTree = "<group>"; };
+		F5D7D7491D5454DB00AC6E25 /* SDWebImageCompat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageCompat.m; sourceTree = "<group>"; };
+		F5D7D74A1D5454DB00AC6E25 /* SDWebImageDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageDecoder.h; sourceTree = "<group>"; };
+		F5D7D74B1D5454DB00AC6E25 /* SDWebImageDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageDecoder.m; sourceTree = "<group>"; };
+		F5D7D74C1D5454DB00AC6E25 /* SDWebImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageDownloader.h; sourceTree = "<group>"; };
+		F5D7D74D1D5454DB00AC6E25 /* SDWebImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageDownloader.m; sourceTree = "<group>"; };
+		F5D7D74E1D5454DB00AC6E25 /* SDWebImageDownloaderOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageDownloaderOperation.h; sourceTree = "<group>"; };
+		F5D7D74F1D5454DB00AC6E25 /* SDWebImageDownloaderOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageDownloaderOperation.m; sourceTree = "<group>"; };
+		F5D7D7501D5454DB00AC6E25 /* SDWebImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageManager.h; sourceTree = "<group>"; };
+		F5D7D7511D5454DB00AC6E25 /* SDWebImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageManager.m; sourceTree = "<group>"; };
+		F5D7D7521D5454DB00AC6E25 /* SDWebImageOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImageOperation.h; sourceTree = "<group>"; };
+		F5D7D7531D5454DB00AC6E25 /* SDWebImagePrefetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImagePrefetcher.h; sourceTree = "<group>"; };
+		F5D7D7541D5454DB00AC6E25 /* SDWebImagePrefetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImagePrefetcher.m; sourceTree = "<group>"; };
+		F5D7D7551D5454DB00AC6E25 /* UIButton+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+WebCache.h"; sourceTree = "<group>"; };
+		F5D7D7561D5454DB00AC6E25 /* UIButton+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+WebCache.m"; sourceTree = "<group>"; };
+		F5D7D7571D5454DB00AC6E25 /* UIImage+GIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+GIF.h"; sourceTree = "<group>"; };
+		F5D7D7581D5454DB00AC6E25 /* UIImage+GIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+GIF.m"; sourceTree = "<group>"; };
+		F5D7D7591D5454DB00AC6E25 /* UIImage+MultiFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MultiFormat.h"; sourceTree = "<group>"; };
+		F5D7D75A1D5454DB00AC6E25 /* UIImage+MultiFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MultiFormat.m"; sourceTree = "<group>"; };
+		F5D7D75B1D5454DB00AC6E25 /* UIImage+WebP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+WebP.h"; sourceTree = "<group>"; };
+		F5D7D75C1D5454DB00AC6E25 /* UIImage+WebP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WebP.m"; sourceTree = "<group>"; };
+		F5D7D75D1D5454DB00AC6E25 /* UIImageView+HighlightedWebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+HighlightedWebCache.h"; sourceTree = "<group>"; };
+		F5D7D75E1D5454DB00AC6E25 /* UIImageView+HighlightedWebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+HighlightedWebCache.m"; sourceTree = "<group>"; };
+		F5D7D75F1D5454DB00AC6E25 /* UIImageView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WebCache.h"; sourceTree = "<group>"; };
+		F5D7D7601D5454DB00AC6E25 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
+		F5D7D7611D5454DB00AC6E25 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
+		F5D7D7621D5454DB00AC6E25 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		F5D7D7641D5454DB00AC6E25 /* JMPhotoPicker.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = JMPhotoPicker.xcassets; sourceTree = "<group>"; };
+		F5D7D7661D5454DB00AC6E25 /* JMPhotoPickerCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JMPhotoPickerCollectionViewCell.xib; sourceTree = "<group>"; };
+		F5D7D7671D5454DB00AC6E25 /* JMPhotoPickerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JMPhotoPickerController.xib; sourceTree = "<group>"; };
+		F5D7D7681D5454DB00AC6E25 /* JMPhotoPickerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JMPhotoPickerTableViewCell.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F5D7D7071D54534600AC6E25 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F5D7D7011D54534600AC6E25 = {
+			isa = PBXGroup;
+			children = (
+				F5D7D70C1D54534600AC6E25 /* JMPhotoPicker Example */,
+				F5D7D70B1D54534600AC6E25 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F5D7D70B1D54534600AC6E25 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F5D7D70A1D54534600AC6E25 /* JMPhotoPicker Example.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F5D7D70C1D54534600AC6E25 /* JMPhotoPicker Example */ = {
+			isa = PBXGroup;
+			children = (
+				F5D7D7241D5454DB00AC6E25 /* JMPhotoPicker */,
+				F5D7D7101D54534600AC6E25 /* AppDelegate.h */,
+				F5D7D7111D54534600AC6E25 /* AppDelegate.m */,
+				F5D7D7131D54534600AC6E25 /* ViewController.h */,
+				F5D7D7141D54534600AC6E25 /* ViewController.m */,
+				F5D7D7161D54534600AC6E25 /* Main.storyboard */,
+				F5D7D7191D54534600AC6E25 /* Assets.xcassets */,
+				F5D7D71B1D54534600AC6E25 /* LaunchScreen.storyboard */,
+				F5D7D71E1D54534600AC6E25 /* Info.plist */,
+				F5D7D70D1D54534600AC6E25 /* Supporting Files */,
+			);
+			path = "JMPhotoPicker Example";
+			sourceTree = "<group>";
+		};
+		F5D7D70D1D54534600AC6E25 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F5D7D70E1D54534600AC6E25 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F5D7D7241D5454DB00AC6E25 /* JMPhotoPicker */ = {
+			isa = PBXGroup;
+			children = (
+				F5D7D7251D5454DB00AC6E25 /* Classes */,
+				F5D7D7651D5454DB00AC6E25 /* Views */,
+				F5D7D73D1D5454DB00AC6E25 /* External */,
+				F5D7D7631D5454DB00AC6E25 /* Resources */,
+			);
+			name = JMPhotoPicker;
+			path = ../../JMPhotoPicker;
+			sourceTree = "<group>";
+		};
+		F5D7D7251D5454DB00AC6E25 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				F5D7D7361D5454DB00AC6E25 /* JMPhotoPickerController.h */,
+				F5D7D7371D5454DB00AC6E25 /* JMPhotoPickerController.m */,
+				F5D7D7341D5454DB00AC6E25 /* JMPhotoPickerCollectionViewCell.h */,
+				F5D7D7351D5454DB00AC6E25 /* JMPhotoPickerCollectionViewCell.m */,
+				F5D7D7381D5454DB00AC6E25 /* JMPhotoPickerTableViewCell.h */,
+				F5D7D7391D5454DB00AC6E25 /* JMPhotoPickerTableViewCell.m */,
+				F5D7D7261D5454DB00AC6E25 /* Data Sources */,
+				F5D7D72D1D5454DB00AC6E25 /* Helpers */,
+				F5D7D73A1D5454DB00AC6E25 /* Models */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		F5D7D7261D5454DB00AC6E25 /* Data Sources */ = {
+			isa = PBXGroup;
+			children = (
+				F5D7D72B1D5454DB00AC6E25 /* JMPPDataSourceLibrary.h */,
+				F5D7D72C1D5454DB00AC6E25 /* JMPPDataSourceLibrary.m */,
+				F5D7D7271D5454DB00AC6E25 /* JMPPDataSourceFacebook.h */,
+				F5D7D7281D5454DB00AC6E25 /* JMPPDataSourceFacebook.m */,
+				F5D7D7291D5454DB00AC6E25 /* JMPPDataSourceInstagram.h */,
+				F5D7D72A1D5454DB00AC6E25 /* JMPPDataSourceInstagram.m */,
+			);
+			path = "Data Sources";
+			sourceTree = "<group>";
+		};
+		F5D7D72D1D5454DB00AC6E25 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F5D7D72E1D5454DB00AC6E25 /* JMPPConstants.h */,
+				F5D7D72F1D5454DB00AC6E25 /* JMPPError.h */,
+				F5D7D7301D5454DB00AC6E25 /* JMPPError.m */,
+				F5D7D7311D5454DB00AC6E25 /* JMPPStrings.h */,
+				F5D7D7321D5454DB00AC6E25 /* JMPPUtils.h */,
+				F5D7D7331D5454DB00AC6E25 /* JMPPUtils.m */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		F5D7D73A1D5454DB00AC6E25 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F5D7D73B1D5454DB00AC6E25 /* JMPPAlbum.h */,
+				F5D7D73C1D5454DB00AC6E25 /* JMPPAlbum.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F5D7D73D1D5454DB00AC6E25 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				F5D7D73E1D5454DB00AC6E25 /* MBProgressHUD */,
+				F5D7D7411D5454DB00AC6E25 /* SDWebImage */,
+			);
+			path = External;
+			sourceTree = "<group>";
+		};
+		F5D7D73E1D5454DB00AC6E25 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				F5D7D73F1D5454DB00AC6E25 /* MBProgressHUD.h */,
+				F5D7D7401D5454DB00AC6E25 /* MBProgressHUD.m */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		F5D7D7411D5454DB00AC6E25 /* SDWebImage */ = {
+			isa = PBXGroup;
+			children = (
+				F5D7D7421D5454DB00AC6E25 /* MKAnnotationView+WebCache.h */,
+				F5D7D7431D5454DB00AC6E25 /* MKAnnotationView+WebCache.m */,
+				F5D7D7441D5454DB00AC6E25 /* NSData+ImageContentType.h */,
+				F5D7D7451D5454DB00AC6E25 /* NSData+ImageContentType.m */,
+				F5D7D7461D5454DB00AC6E25 /* SDImageCache.h */,
+				F5D7D7471D5454DB00AC6E25 /* SDImageCache.m */,
+				F5D7D7481D5454DB00AC6E25 /* SDWebImageCompat.h */,
+				F5D7D7491D5454DB00AC6E25 /* SDWebImageCompat.m */,
+				F5D7D74A1D5454DB00AC6E25 /* SDWebImageDecoder.h */,
+				F5D7D74B1D5454DB00AC6E25 /* SDWebImageDecoder.m */,
+				F5D7D74C1D5454DB00AC6E25 /* SDWebImageDownloader.h */,
+				F5D7D74D1D5454DB00AC6E25 /* SDWebImageDownloader.m */,
+				F5D7D74E1D5454DB00AC6E25 /* SDWebImageDownloaderOperation.h */,
+				F5D7D74F1D5454DB00AC6E25 /* SDWebImageDownloaderOperation.m */,
+				F5D7D7501D5454DB00AC6E25 /* SDWebImageManager.h */,
+				F5D7D7511D5454DB00AC6E25 /* SDWebImageManager.m */,
+				F5D7D7521D5454DB00AC6E25 /* SDWebImageOperation.h */,
+				F5D7D7531D5454DB00AC6E25 /* SDWebImagePrefetcher.h */,
+				F5D7D7541D5454DB00AC6E25 /* SDWebImagePrefetcher.m */,
+				F5D7D7551D5454DB00AC6E25 /* UIButton+WebCache.h */,
+				F5D7D7561D5454DB00AC6E25 /* UIButton+WebCache.m */,
+				F5D7D7571D5454DB00AC6E25 /* UIImage+GIF.h */,
+				F5D7D7581D5454DB00AC6E25 /* UIImage+GIF.m */,
+				F5D7D7591D5454DB00AC6E25 /* UIImage+MultiFormat.h */,
+				F5D7D75A1D5454DB00AC6E25 /* UIImage+MultiFormat.m */,
+				F5D7D75B1D5454DB00AC6E25 /* UIImage+WebP.h */,
+				F5D7D75C1D5454DB00AC6E25 /* UIImage+WebP.m */,
+				F5D7D75D1D5454DB00AC6E25 /* UIImageView+HighlightedWebCache.h */,
+				F5D7D75E1D5454DB00AC6E25 /* UIImageView+HighlightedWebCache.m */,
+				F5D7D75F1D5454DB00AC6E25 /* UIImageView+WebCache.h */,
+				F5D7D7601D5454DB00AC6E25 /* UIImageView+WebCache.m */,
+				F5D7D7611D5454DB00AC6E25 /* UIView+WebCacheOperation.h */,
+				F5D7D7621D5454DB00AC6E25 /* UIView+WebCacheOperation.m */,
+			);
+			path = SDWebImage;
+			sourceTree = "<group>";
+		};
+		F5D7D7631D5454DB00AC6E25 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F5D7D7641D5454DB00AC6E25 /* JMPhotoPicker.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F5D7D7651D5454DB00AC6E25 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F5D7D7661D5454DB00AC6E25 /* JMPhotoPickerCollectionViewCell.xib */,
+				F5D7D7671D5454DB00AC6E25 /* JMPhotoPickerController.xib */,
+				F5D7D7681D5454DB00AC6E25 /* JMPhotoPickerTableViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F5D7D7091D54534600AC6E25 /* JMPhotoPicker Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F5D7D7211D54534600AC6E25 /* Build configuration list for PBXNativeTarget "JMPhotoPicker Example" */;
+			buildPhases = (
+				F5D7D7061D54534600AC6E25 /* Sources */,
+				F5D7D7071D54534600AC6E25 /* Frameworks */,
+				F5D7D7081D54534600AC6E25 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "JMPhotoPicker Example";
+			productName = "JMPhotoPicker Example";
+			productReference = F5D7D70A1D54534600AC6E25 /* JMPhotoPicker Example.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F5D7D7021D54534600AC6E25 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = JM;
+				TargetAttributes = {
+					F5D7D7091D54534600AC6E25 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = F5D7D7051D54534600AC6E25 /* Build configuration list for PBXProject "JMPhotoPicker Example" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F5D7D7011D54534600AC6E25;
+			productRefGroup = F5D7D70B1D54534600AC6E25 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F5D7D7091D54534600AC6E25 /* JMPhotoPicker Example */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F5D7D7081D54534600AC6E25 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5D7D71D1D54534600AC6E25 /* LaunchScreen.storyboard in Resources */,
+				F5D7D7831D5454DB00AC6E25 /* JMPhotoPicker.xcassets in Resources */,
+				F5D7D71A1D54534600AC6E25 /* Assets.xcassets in Resources */,
+				F5D7D7861D5454DB00AC6E25 /* JMPhotoPickerTableViewCell.xib in Resources */,
+				F5D7D7851D5454DB00AC6E25 /* JMPhotoPickerController.xib in Resources */,
+				F5D7D7181D54534600AC6E25 /* Main.storyboard in Resources */,
+				F5D7D7841D5454DB00AC6E25 /* JMPhotoPickerCollectionViewCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F5D7D7061D54534600AC6E25 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5D7D7701D5454DB00AC6E25 /* JMPhotoPickerTableViewCell.m in Sources */,
+				F5D7D77F1D5454DB00AC6E25 /* UIImage+WebP.m in Sources */,
+				F5D7D7151D54534600AC6E25 /* ViewController.m in Sources */,
+				F5D7D76C1D5454DB00AC6E25 /* JMPPError.m in Sources */,
+				F5D7D76E1D5454DB00AC6E25 /* JMPhotoPickerCollectionViewCell.m in Sources */,
+				F5D7D7121D54534600AC6E25 /* AppDelegate.m in Sources */,
+				F5D7D70F1D54534600AC6E25 /* main.m in Sources */,
+				F5D7D7791D5454DB00AC6E25 /* SDWebImageDownloaderOperation.m in Sources */,
+				F5D7D7711D5454DB00AC6E25 /* JMPPAlbum.m in Sources */,
+				F5D7D7751D5454DB00AC6E25 /* SDImageCache.m in Sources */,
+				F5D7D76F1D5454DB00AC6E25 /* JMPhotoPickerController.m in Sources */,
+				F5D7D76B1D5454DB00AC6E25 /* JMPPDataSourceLibrary.m in Sources */,
+				F5D7D7721D5454DB00AC6E25 /* MBProgressHUD.m in Sources */,
+				F5D7D7761D5454DB00AC6E25 /* SDWebImageCompat.m in Sources */,
+				F5D7D7741D5454DB00AC6E25 /* NSData+ImageContentType.m in Sources */,
+				F5D7D76A1D5454DB00AC6E25 /* JMPPDataSourceInstagram.m in Sources */,
+				F5D7D77A1D5454DB00AC6E25 /* SDWebImageManager.m in Sources */,
+				F5D7D7781D5454DB00AC6E25 /* SDWebImageDownloader.m in Sources */,
+				F5D7D7811D5454DB00AC6E25 /* UIImageView+WebCache.m in Sources */,
+				F5D7D7801D5454DB00AC6E25 /* UIImageView+HighlightedWebCache.m in Sources */,
+				F5D7D7731D5454DB00AC6E25 /* MKAnnotationView+WebCache.m in Sources */,
+				F5D7D77D1D5454DB00AC6E25 /* UIImage+GIF.m in Sources */,
+				F5D7D76D1D5454DB00AC6E25 /* JMPPUtils.m in Sources */,
+				F5D7D77B1D5454DB00AC6E25 /* SDWebImagePrefetcher.m in Sources */,
+				F5D7D77C1D5454DB00AC6E25 /* UIButton+WebCache.m in Sources */,
+				F5D7D77E1D5454DB00AC6E25 /* UIImage+MultiFormat.m in Sources */,
+				F5D7D7771D5454DB00AC6E25 /* SDWebImageDecoder.m in Sources */,
+				F5D7D7821D5454DB00AC6E25 /* UIView+WebCacheOperation.m in Sources */,
+				F5D7D7691D5454DB00AC6E25 /* JMPPDataSourceFacebook.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F5D7D7161D54534600AC6E25 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F5D7D7171D54534600AC6E25 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F5D7D71B1D54534600AC6E25 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F5D7D71C1D54534600AC6E25 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F5D7D71F1D54534600AC6E25 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F5D7D7201D54534600AC6E25 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F5D7D7221D54534600AC6E25 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "JMPhotoPicker Example/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jm.photopicker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F5D7D7231D54534600AC6E25 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "JMPhotoPicker Example/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jm.photopicker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F5D7D7051D54534600AC6E25 /* Build configuration list for PBXProject "JMPhotoPicker Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5D7D71F1D54534600AC6E25 /* Debug */,
+				F5D7D7201D54534600AC6E25 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F5D7D7211D54534600AC6E25 /* Build configuration list for PBXNativeTarget "JMPhotoPicker Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5D7D7221D54534600AC6E25 /* Debug */,
+				F5D7D7231D54534600AC6E25 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F5D7D7021D54534600AC6E25 /* Project object */;
+}
