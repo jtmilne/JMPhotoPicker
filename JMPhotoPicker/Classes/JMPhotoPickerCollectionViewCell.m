@@ -46,6 +46,7 @@
 
 - (void)awakeFromNib
 {
+    [super awakeFromNib];
     [self.viewPhoto.layer setBorderColor:[UIColor blueColor].CGColor];    
 }
 
