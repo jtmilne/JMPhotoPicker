@@ -28,21 +28,14 @@
 		F50414CC1D9ACF03000BBD8A /* JMPhotoPickerLib.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F55DD5781D96000600648A0A /* JMPhotoPickerLib.h */; };
 		F50414CD1D9ACF2D000BBD8A /* JMPPConstants.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F55DD58B1D96003100648A0A /* JMPPConstants.h */; };
 		F50414CE1D9ACF35000BBD8A /* JMPhotoPickerController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F55DD5931D96003100648A0A /* JMPhotoPickerController.h */; };
-		F50414D91D9AD015000BBD8A /* JMPhotoPickerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F55DD5C31D96003200648A0A /* JMPhotoPickerCollectionViewCell.xib */; };
-		F50414DA1D9AD015000BBD8A /* JMPhotoPickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F55DD5C41D96003200648A0A /* JMPhotoPickerController.xib */; };
-		F50414DB1D9AD015000BBD8A /* JMPhotoPickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F55DD5C51D96003200648A0A /* JMPhotoPickerTableViewCell.xib */; };
-		F50414DC1D9AD019000BBD8A /* JMPhotoPicker.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F55DD5C11D96003200648A0A /* JMPhotoPicker.xcassets */; };
-		F50414E41D9AD1FC000BBD8A /* JMPhotoPickerCollectionViewCell.xib in CopyFiles */ = {isa = PBXBuildFile; fileRef = F55DD5C31D96003200648A0A /* JMPhotoPickerCollectionViewCell.xib */; };
-		F50414E51D9AD1FC000BBD8A /* JMPhotoPickerController.xib in CopyFiles */ = {isa = PBXBuildFile; fileRef = F55DD5C41D96003200648A0A /* JMPhotoPickerController.xib */; };
-		F50414E61D9AD1FC000BBD8A /* JMPhotoPickerTableViewCell.xib in CopyFiles */ = {isa = PBXBuildFile; fileRef = F55DD5C51D96003200648A0A /* JMPhotoPickerTableViewCell.xib */; };
 		F50414E71D9AD202000BBD8A /* JMPhotoPicker.xcassets in CopyFiles */ = {isa = PBXBuildFile; fileRef = F55DD5C11D96003200648A0A /* JMPhotoPicker.xcassets */; };
-		F50415061D9AD59F000BBD8A /* JMPhotoPickerLib.m in Sources */ = {isa = PBXBuildFile; fileRef = F50415051D9AD59F000BBD8A /* JMPhotoPickerLib.m */; };
+		F504150A1D9B7DE9000BBD8A /* JMPhotoPicker.storyboard in CopyFiles */ = {isa = PBXBuildFile; fileRef = F50415071D9B2C20000BBD8A /* JMPhotoPicker.storyboard */; };
+		F504151A1D9B89B7000BBD8A /* JMPhotoPickerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F50415181D9B89B7000BBD8A /* JMPhotoPickerCollectionViewCell.m */; };
 		F55DD5C61D96003200648A0A /* JMPPDataSourceFacebook.m in Sources */ = {isa = PBXBuildFile; fileRef = F55DD5851D96003100648A0A /* JMPPDataSourceFacebook.m */; };
 		F55DD5C71D96003200648A0A /* JMPPDataSourceInstagram.m in Sources */ = {isa = PBXBuildFile; fileRef = F55DD5871D96003100648A0A /* JMPPDataSourceInstagram.m */; };
 		F55DD5C81D96003200648A0A /* JMPPDataSourceLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = F55DD5891D96003100648A0A /* JMPPDataSourceLibrary.m */; };
 		F55DD5C91D96003200648A0A /* JMPPError.m in Sources */ = {isa = PBXBuildFile; fileRef = F55DD58D1D96003100648A0A /* JMPPError.m */; };
 		F55DD5CA1D96003200648A0A /* JMPPUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = F55DD5901D96003100648A0A /* JMPPUtils.m */; };
-		F55DD5CB1D96003200648A0A /* JMPhotoPickerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F55DD5921D96003100648A0A /* JMPhotoPickerCollectionViewCell.m */; };
 		F55DD5CC1D96003200648A0A /* JMPhotoPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = F55DD5941D96003100648A0A /* JMPhotoPickerController.m */; };
 		F55DD5CD1D96003200648A0A /* JMPhotoPickerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F55DD5961D96003100648A0A /* JMPhotoPickerTableViewCell.m */; };
 		F55DD5CE1D96003200648A0A /* JMPPAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = F55DD5991D96003100648A0A /* JMPPAlbum.m */; };
@@ -82,10 +75,8 @@
 			dstPath = include;
 			dstSubfolderSpec = 16;
 			files = (
+				F504150A1D9B7DE9000BBD8A /* JMPhotoPicker.storyboard in CopyFiles */,
 				F50414E71D9AD202000BBD8A /* JMPhotoPicker.xcassets in CopyFiles */,
-				F50414E41D9AD1FC000BBD8A /* JMPhotoPickerCollectionViewCell.xib in CopyFiles */,
-				F50414E51D9AD1FC000BBD8A /* JMPhotoPickerController.xib in CopyFiles */,
-				F50414E61D9AD1FC000BBD8A /* JMPhotoPickerTableViewCell.xib in CopyFiles */,
 				F50414CE1D9ACF35000BBD8A /* JMPhotoPickerController.h in CopyFiles */,
 				F50414CD1D9ACF2D000BBD8A /* JMPPConstants.h in CopyFiles */,
 				F50414CC1D9ACF03000BBD8A /* JMPhotoPickerLib.h in CopyFiles */,
@@ -95,10 +86,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		F50414D31D9ACFCC000BBD8A /* JMPhotoPickerResources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JMPhotoPickerResources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		F50414D51D9ACFCC000BBD8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F50415051D9AD59F000BBD8A /* JMPhotoPickerLib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMPhotoPickerLib.m; sourceTree = "<group>"; };
 		F50415071D9B2C20000BBD8A /* JMPhotoPicker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = JMPhotoPicker.storyboard; sourceTree = "<group>"; };
+		F50415171D9B89B7000BBD8A /* JMPhotoPickerCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMPhotoPickerCollectionViewCell.h; sourceTree = "<group>"; };
+		F50415181D9B89B7000BBD8A /* JMPhotoPickerCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMPhotoPickerCollectionViewCell.m; sourceTree = "<group>"; };
 		F55DD5751D96000600648A0A /* libJMPhotoPickerLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libJMPhotoPickerLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F55DD5781D96000600648A0A /* JMPhotoPickerLib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JMPhotoPickerLib.h; sourceTree = "<group>"; };
 		F55DD5841D96003100648A0A /* JMPPDataSourceFacebook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMPPDataSourceFacebook.h; sourceTree = "<group>"; };
@@ -113,8 +104,6 @@
 		F55DD58E1D96003100648A0A /* JMPPStrings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMPPStrings.h; sourceTree = "<group>"; };
 		F55DD58F1D96003100648A0A /* JMPPUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMPPUtils.h; sourceTree = "<group>"; };
 		F55DD5901D96003100648A0A /* JMPPUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMPPUtils.m; sourceTree = "<group>"; };
-		F55DD5911D96003100648A0A /* JMPhotoPickerCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMPhotoPickerCollectionViewCell.h; sourceTree = "<group>"; };
-		F55DD5921D96003100648A0A /* JMPhotoPickerCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMPhotoPickerCollectionViewCell.m; sourceTree = "<group>"; };
 		F55DD5931D96003100648A0A /* JMPhotoPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMPhotoPickerController.h; sourceTree = "<group>"; };
 		F55DD5941D96003100648A0A /* JMPhotoPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMPhotoPickerController.m; sourceTree = "<group>"; };
 		F55DD5951D96003100648A0A /* JMPhotoPickerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMPhotoPickerTableViewCell.h; sourceTree = "<group>"; };
@@ -157,19 +146,9 @@
 		F55DD5BE1D96003200648A0A /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		F55DD5BF1D96003200648A0A /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		F55DD5C11D96003200648A0A /* JMPhotoPicker.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = JMPhotoPicker.xcassets; sourceTree = "<group>"; };
-		F55DD5C31D96003200648A0A /* JMPhotoPickerCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JMPhotoPickerCollectionViewCell.xib; sourceTree = "<group>"; };
-		F55DD5C41D96003200648A0A /* JMPhotoPickerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JMPhotoPickerController.xib; sourceTree = "<group>"; };
-		F55DD5C51D96003200648A0A /* JMPhotoPickerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JMPhotoPickerTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		F50414D01D9ACFCC000BBD8A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		F55DD5721D96000600648A0A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -201,7 +180,6 @@
 			isa = PBXGroup;
 			children = (
 				F55DD5751D96000600648A0A /* libJMPhotoPickerLib.a */,
-				F50414D31D9ACFCC000BBD8A /* JMPhotoPickerResources.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -211,7 +189,6 @@
 			children = (
 				F55DD5811D96003100648A0A /* JMPhotoPicker */,
 				F55DD5781D96000600648A0A /* JMPhotoPickerLib.h */,
-				F50415051D9AD59F000BBD8A /* JMPhotoPickerLib.m */,
 			);
 			path = JMPhotoPickerLib;
 			sourceTree = "<group>";
@@ -233,10 +210,10 @@
 			children = (
 				F55DD5831D96003100648A0A /* Data Sources */,
 				F55DD58A1D96003100648A0A /* Helpers */,
-				F55DD5911D96003100648A0A /* JMPhotoPickerCollectionViewCell.h */,
-				F55DD5921D96003100648A0A /* JMPhotoPickerCollectionViewCell.m */,
 				F55DD5931D96003100648A0A /* JMPhotoPickerController.h */,
 				F55DD5941D96003100648A0A /* JMPhotoPickerController.m */,
+				F50415171D9B89B7000BBD8A /* JMPhotoPickerCollectionViewCell.h */,
+				F50415181D9B89B7000BBD8A /* JMPhotoPickerCollectionViewCell.m */,
 				F55DD5951D96003100648A0A /* JMPhotoPickerTableViewCell.h */,
 				F55DD5961D96003100648A0A /* JMPhotoPickerTableViewCell.m */,
 				F55DD5971D96003100648A0A /* Models */,
@@ -348,9 +325,6 @@
 		F55DD5C21D96003200648A0A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				F55DD5C31D96003200648A0A /* JMPhotoPickerCollectionViewCell.xib */,
-				F55DD5C41D96003200648A0A /* JMPhotoPickerController.xib */,
-				F55DD5C51D96003200648A0A /* JMPhotoPickerTableViewCell.xib */,
 				F50415071D9B2C20000BBD8A /* JMPhotoPicker.storyboard */,
 			);
 			path = Views;
@@ -372,23 +346,6 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		F50414D21D9ACFCC000BBD8A /* JMPhotoPickerResources */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F50414D61D9ACFCC000BBD8A /* Build configuration list for PBXNativeTarget "JMPhotoPickerResources" */;
-			buildPhases = (
-				F50414CF1D9ACFCC000BBD8A /* Sources */,
-				F50414D01D9ACFCC000BBD8A /* Frameworks */,
-				F50414D11D9ACFCC000BBD8A /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = JMPhotoPickerResources;
-			productName = JMPhotoPickerResources;
-			productReference = F50414D31D9ACFCC000BBD8A /* JMPhotoPickerResources.bundle */;
-			productType = "com.apple.product-type.bundle";
-		};
 		F55DD5741D96000600648A0A /* JMPhotoPickerLib */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F55DD57E1D96000600648A0A /* Build configuration list for PBXNativeTarget "JMPhotoPickerLib" */;
@@ -416,10 +373,6 @@
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = JM;
 				TargetAttributes = {
-					F50414D21D9ACFCC000BBD8A = {
-						CreatedOnToolsVersion = 8.0;
-						ProvisioningStyle = Automatic;
-					};
 					F55DD5741D96000600648A0A = {
 						CreatedOnToolsVersion = 8.0;
 						ProvisioningStyle = Automatic;
@@ -444,24 +397,9 @@
 			targets = (
 				F55DD5741D96000600648A0A /* JMPhotoPickerLib */,
 				F55DD5E01D9600D100648A0A /* libJMPhotoPicker */,
-				F50414D21D9ACFCC000BBD8A /* JMPhotoPickerResources */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		F50414D11D9ACFCC000BBD8A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F50414DC1D9AD019000BBD8A /* JMPhotoPicker.xcassets in Resources */,
-				F50414D91D9AD015000BBD8A /* JMPhotoPickerCollectionViewCell.xib in Resources */,
-				F50414DA1D9AD015000BBD8A /* JMPhotoPickerController.xib in Resources */,
-				F50414DB1D9AD015000BBD8A /* JMPhotoPickerTableViewCell.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
 		F55DD5E41D9601F000648A0A /* ShellScript */ = {
@@ -480,28 +418,20 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		F50414CF1D9ACFCC000BBD8A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		F55DD5711D96000600648A0A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				F55DD5CE1D96003200648A0A /* JMPPAlbum.m in Sources */,
 				F55DD5D01D96003200648A0A /* MKAnnotationView+WebCache.m in Sources */,
+				F504151A1D9B89B7000BBD8A /* JMPhotoPickerCollectionViewCell.m in Sources */,
 				F55DD5C81D96003200648A0A /* JMPPDataSourceLibrary.m in Sources */,
 				F55DD5D81D96003200648A0A /* SDWebImagePrefetcher.m in Sources */,
-				F50415061D9AD59F000BBD8A /* JMPhotoPickerLib.m in Sources */,
 				F55DD5D71D96003200648A0A /* SDWebImageManager.m in Sources */,
 				F55DD5CD1D96003200648A0A /* JMPhotoPickerTableViewCell.m in Sources */,
 				F55DD5C71D96003200648A0A /* JMPPDataSourceInstagram.m in Sources */,
 				F55DD5DE1D96003200648A0A /* UIImageView+WebCache.m in Sources */,
 				F55DD5D31D96003200648A0A /* SDWebImageCompat.m in Sources */,
-				F55DD5CB1D96003200648A0A /* JMPhotoPickerCollectionViewCell.m in Sources */,
 				F55DD5D41D96003200648A0A /* SDWebImageDecoder.m in Sources */,
 				F55DD5DB1D96003200648A0A /* UIImage+MultiFormat.m in Sources */,
 				F55DD5DC1D96003200648A0A /* UIImage+WebP.m in Sources */,
@@ -532,39 +462,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		F50414D71D9ACFCC000BBD8A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "-";
-				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = JMPhotoPickerResources/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jm.JMPhotoPickerResources;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Debug;
-		};
-		F50414D81D9ACFCC000BBD8A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "-";
-				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = JMPhotoPickerResources/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jm.JMPhotoPickerResources;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Release;
-		};
 		F55DD57C1D96000600648A0A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -698,14 +595,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F50414D61D9ACFCC000BBD8A /* Build configuration list for PBXNativeTarget "JMPhotoPickerResources" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F50414D71D9ACFCC000BBD8A /* Debug */,
-				F50414D81D9ACFCC000BBD8A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
 		F55DD5701D96000600648A0A /* Build configuration list for PBXProject "JMPhotoPickerLib" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

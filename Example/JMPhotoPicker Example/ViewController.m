@@ -30,7 +30,7 @@
 #define kInstagramId            @""
 #define kInstagramRedirect      @""
 #define kInstagramSandbox       NO //indicates we will get max 20 images back in sandbox mode
-//NOTE: be sure to set NSPhotoLibraryUsageDescription or iOS 10 will exit/crash
+//NOTE: be sure to set NSPhotoLibraryUsageDescription in Info.plist or iOS 10 will exit/crash
 
 //*********************************
 

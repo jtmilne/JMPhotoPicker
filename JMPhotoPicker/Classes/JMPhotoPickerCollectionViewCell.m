@@ -23,14 +23,14 @@
 
 @interface JMPhotoPickerCollectionViewCell()
 
-@property (nonatomic, strong) IBOutlet UIView *viewPhoto;
-@property (nonatomic, strong) IBOutlet UIImageView *imageViewPhoto;
-@property (nonatomic, strong) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (nonatomic, strong) IBOutlet UIView *viewCellPhoto;
+@property (nonatomic, strong) IBOutlet UIImageView *imageViewCellPhoto;
+@property (nonatomic, strong) IBOutlet UIActivityIndicatorView *activityIndicatorCell;
 
-@property (nonatomic, strong) IBOutlet NSLayoutConstraint *constraintImageTop;
-@property (nonatomic, strong) IBOutlet NSLayoutConstraint *constraintImageBottom;
-@property (nonatomic, strong) IBOutlet NSLayoutConstraint *constraintImageLeading;
-@property (nonatomic, strong) IBOutlet NSLayoutConstraint *constraintImageTrailing;
+@property (nonatomic, strong) IBOutlet NSLayoutConstraint *constraintCellImageTop;
+@property (nonatomic, strong) IBOutlet NSLayoutConstraint *constraintCellImageBottom;
+@property (nonatomic, strong) IBOutlet NSLayoutConstraint *constraintCellImageLeading;
+@property (nonatomic, strong) IBOutlet NSLayoutConstraint *constraintCellImageTrailing;
 
 @property (nonatomic, strong) NSString *imageIdentifier;
 
@@ -47,7 +47,7 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib];
-    [self.viewPhoto.layer setBorderColor:[UIColor blueColor].CGColor];    
+    [self.viewCellPhoto.layer setBorderColor:[UIColor blueColor].CGColor];
 }
 
 - (void)prepareForReuse
@@ -55,9 +55,9 @@
     [super prepareForReuse];
     
     //reset the cell
-    [self.imageViewPhoto setImage:nil];
-    [self.activityIndicator setHidden:NO];
-    [self.activityIndicator startAnimating];
+    [self.imageViewCellPhoto setImage:nil];
+    [self.activityIndicatorCell setHidden:NO];
+    [self.activityIndicatorCell startAnimating];
     [self setImageIdentifier:nil];
     [self resetConstraints];
 
@@ -70,7 +70,7 @@
 - (void)setSelected:(BOOL)selected
 {
     [super setSelected:selected];
-    [self.viewPhoto.layer setBorderWidth:(selected) ? 2 : 0];
+    [self.viewCellPhoto.layer setBorderWidth:(selected) ? 2 : 0];
 }
 
 ////////////////////////////////////////////////////////////////
@@ -84,7 +84,7 @@
     
     //calculate image size to request
     [self resetConstraints];
-    NSUInteger pixels = roundf(self.viewPhoto.bounds.size.width * [UIScreen mainScreen].scale);
+    NSUInteger pixels = roundf(self.viewCellPhoto.bounds.size.width * [UIScreen mainScreen].scale);
 
     //load the image and center it in the square
     [dataSource loadPhotoFromAlbum:album withIndex:index andMinPixels:pixels andSuccess:^(UIImage *image) {
@@ -98,22 +98,22 @@
 
                 if (aspectRatio < 1.0f) {
                     
-                    CGFloat dy = self.imageViewPhoto.frame.size.height - (self.imageViewPhoto.frame.size.width / aspectRatio);
-                    [self.constraintImageTop setConstant:dy/2.0f];
-                    [self.constraintImageBottom setConstant:dy/2.0f];
+                    CGFloat dy = self.imageViewCellPhoto.frame.size.height - (self.imageViewCellPhoto.frame.size.width / aspectRatio);
+                    [self.constraintCellImageTop setConstant:dy/2.0f];
+                    [self.constraintCellImageBottom setConstant:dy/2.0f];
                     [self layoutIfNeeded];
                     
                 } else if (aspectRatio > 1.0f) {
                     
-                    CGFloat dx = self.imageViewPhoto.frame.size.width - (self.imageViewPhoto.frame.size.height * aspectRatio);
-                    [self.constraintImageLeading setConstant:dx/2.0f];
-                    [self.constraintImageTrailing setConstant:dx/2.0f];
+                    CGFloat dx = self.imageViewCellPhoto.frame.size.width - (self.imageViewCellPhoto.frame.size.height * aspectRatio);
+                    [self.constraintCellImageLeading setConstant:dx/2.0f];
+                    [self.constraintCellImageTrailing setConstant:dx/2.0f];
                     [self layoutIfNeeded];
                     
                 }
                 
-                [self.imageViewPhoto setImage:image];
-                [self.activityIndicator stopAnimating];
+                [self.imageViewCellPhoto setImage:image];
+                [self.activityIndicatorCell stopAnimating];
 
             });
             
@@ -123,8 +123,8 @@
         
         dispatch_async(dispatch_get_main_queue(), ^ {
             
-            [self.imageViewPhoto setImage:kImageDownloadFail];
-            [self.activityIndicator stopAnimating];
+            [self.imageViewCellPhoto setImage:kImageDownloadFail];
+            [self.activityIndicatorCell stopAnimating];
             
         });
         
@@ -137,10 +137,10 @@
 
 - (void)resetConstraints
 {
-    [self.constraintImageTop setConstant:0.0f];
-    [self.constraintImageBottom setConstant:0.0f];
-    [self.constraintImageLeading setConstant:0.0f];
-    [self.constraintImageTrailing setConstant:0.0f];
+    [self.constraintCellImageTop setConstant:0.0f];
+    [self.constraintCellImageBottom setConstant:0.0f];
+    [self.constraintCellImageLeading setConstant:0.0f];
+    [self.constraintCellImageTrailing setConstant:0.0f];
     [self layoutIfNeeded];
 }
 

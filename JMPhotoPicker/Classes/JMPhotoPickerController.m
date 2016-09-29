@@ -77,6 +77,9 @@
 @property (nonatomic, strong) JMPPAlbum *currentAlbum;
 @property (nonatomic, copy) NSString *currentImageIdentifier;
 
+- (void)doCustomInit;
+
+//action methods
 - (IBAction)actionCancel:(id)sender;
 - (IBAction)actionSelectImage:(id)sender;
 - (IBAction)actionSelectDataSource:(id)sender;
@@ -109,7 +112,10 @@
 
 + (void)presentWithViewController:(UIViewController *)viewController andFacebookId:(NSString *)facebookId andInstagramId:(NSString *)instagramId andInstagramRedirect:(NSString *)instagramRedirect andInstagramSandboxMode:(BOOL)instagramSandboxMode andSuccess:(JMPPSuccess)successBlock andFailure:(JMPPFailure)failureBlock;
 {
-    JMPhotoPickerController *picker = [[JMPhotoPickerController alloc] init];
+    //    JMPhotoPickerController *picker = [[JMPhotoPickerController alloc] init];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"JMPhotoPicker" bundle:nil];
+    JMPhotoPickerController *picker = [storyboard instantiateViewControllerWithIdentifier:@"JMPPViewController"];
+    [picker setModalPresentationStyle:UIModalPresentationFullScreen];
     [picker setFacebookId:facebookId];
     [picker setInstagramId:instagramId];
     [picker setInstagramRedirect:instagramRedirect];
@@ -123,17 +129,34 @@
 #pragma mark Object Lifecycle
 ////////////////////////////////////////////////////////////////
 
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) [self doCustomInit];
+    return self;
+}
+
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) [self doCustomInit];
+    return self;
+}
+
 - (instancetype)init
 {
     self = [super init];
-    if (self) {
-        [self setInstagramSandboxMode:NO];
-        [self setLibraryDataSource:[[JMPPDataSourceLibrary alloc] init]];
-        [self setFacebookDataSource:[[JMPPDataSourceFacebook alloc] init]];
-        [self setInstagramDataSource:[[JMPPDataSourceInstagram alloc] init]];
-        [self setCurrentDataSource:self.libraryDataSource];
-    }
+    if (self) [self doCustomInit];
     return self;
+}
+
+- (void)doCustomInit
+{
+    [self setInstagramSandboxMode:NO];
+    [self setLibraryDataSource:[[JMPPDataSourceLibrary alloc] init]];
+    [self setFacebookDataSource:[[JMPPDataSourceFacebook alloc] init]];
+    [self setInstagramDataSource:[[JMPPDataSourceInstagram alloc] init]];
+    [self setCurrentDataSource:self.libraryDataSource];
 }
 
 ////////////////////////////////////////////////////////////////
@@ -173,10 +196,12 @@
     [super viewDidLoad];
     
     NSAssert(self.facebookId && self.instagramId && self.instagramRedirect, @"JMPhotoPickerController::viewDidLoad - Social credentials not initialized");
-        
+    
+    /*
     //register the NIB
     UINib *cellNibUser = [UINib nibWithNibName:kCollectionCellNib bundle:[NSBundle mainBundle]];
     [self.collectionViewPhotos registerNib:cellNibUser forCellWithReuseIdentifier:kCollectionCellReuseId];
+     */
 
     //load the folders for the current data source
     [self showSelectedDataSourceButton:self.buttonLibrary];
@@ -419,7 +444,7 @@
         [self setArrayAlbums:results];
         [self.tableViewAlbums reloadData];
         [self switchToAlbumWithIndex:0];
-        
+
         if (success) success(nil);
         
     } andFailure:^(NSError *error) {
@@ -441,10 +466,10 @@
     
     //update the folder drop down button
     [self updateAlbumView];
-    
+
     //update the collection view
     [self.collectionViewPhotos reloadData];
-    
+
     //select the first image in the collection view
     if (self.currentAlbum.count > 0) {
         
