@@ -462,6 +462,7 @@
         return;
     }
 
+    NSAssert(index < self.arrayAlbums.count, @"JMPhotoPickerController::switchToAlbumWithIndex - Attempt to switch to album with index %i when there are only %i albums", (int)index, (int)self.arrayAlbums.count);
     [self setCurrentAlbum:self.arrayAlbums[index]];
     
     //update the folder drop down button

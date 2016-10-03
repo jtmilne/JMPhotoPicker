@@ -41,7 +41,6 @@
 		F5D7D7811D5454DB00AC6E25 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D7D7601D5454DB00AC6E25 /* UIImageView+WebCache.m */; };
 		F5D7D7821D5454DB00AC6E25 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D7D7621D5454DB00AC6E25 /* UIView+WebCacheOperation.m */; };
 		F5D7D7831D5454DB00AC6E25 /* JMPhotoPicker.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5D7D7641D5454DB00AC6E25 /* JMPhotoPicker.xcassets */; };
-		F5D7D7861D5454DB00AC6E25 /* JMPhotoPickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5D7D7681D5454DB00AC6E25 /* JMPhotoPickerTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,7 +111,6 @@
 		F5D7D7611D5454DB00AC6E25 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		F5D7D7621D5454DB00AC6E25 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		F5D7D7641D5454DB00AC6E25 /* JMPhotoPicker.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = JMPhotoPicker.xcassets; sourceTree = "<group>"; };
-		F5D7D7681D5454DB00AC6E25 /* JMPhotoPickerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JMPhotoPickerTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -300,7 +298,6 @@
 			isa = PBXGroup;
 			children = (
 				F50415081D9B412D000BBD8A /* JMPhotoPicker.storyboard */,
-				F5D7D7681D5454DB00AC6E25 /* JMPhotoPickerTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -365,7 +362,6 @@
 				F5D7D71D1D54534600AC6E25 /* LaunchScreen.storyboard in Resources */,
 				F5D7D7831D5454DB00AC6E25 /* JMPhotoPicker.xcassets in Resources */,
 				F5D7D71A1D54534600AC6E25 /* Assets.xcassets in Resources */,
-				F5D7D7861D5454DB00AC6E25 /* JMPhotoPickerTableViewCell.xib in Resources */,
 				F5D7D7181D54534600AC6E25 /* Main.storyboard in Resources */,
 				F50415091D9B412D000BBD8A /* JMPhotoPicker.storyboard in Resources */,
 			);
