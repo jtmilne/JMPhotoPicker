@@ -78,6 +78,7 @@
 @property (nonatomic, copy) NSString *currentImageIdentifier;
 
 - (void)doCustomInit;
+- (void)panic:(NSError *)error;
 
 //action methods
 - (IBAction)actionCancel:(id)sender;
@@ -116,6 +117,7 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"JMPhotoPicker" bundle:nil];
     JMPhotoPickerController *picker = [storyboard instantiateViewControllerWithIdentifier:@"JMPPViewController"];
     [picker setModalPresentationStyle:UIModalPresentationFullScreen];
+    [picker setModalPresentationCapturesStatusBarAppearance:YES];
     [picker setFacebookId:facebookId];
     [picker setInstagramId:instagramId];
     [picker setInstagramRedirect:instagramRedirect];
@@ -159,6 +161,16 @@
     [self setCurrentDataSource:self.libraryDataSource];
 }
 
+- (void)panic:(NSError *)error;
+{
+    dispatch_async(dispatch_get_main_queue(), ^ {
+        [self dismissViewControllerAnimated:YES completion:^{
+            if (self.failureBlock) self.failureBlock(error);
+        }];
+        [JMPPUtils logDebug:@"JMPhotoPickerController::panic - %@", (error) ? error.localizedDescription : @"unknown error"];
+    });
+}
+
 ////////////////////////////////////////////////////////////////
 #pragma mark Custom Setters
 ////////////////////////////////////////////////////////////////
@@ -195,31 +207,24 @@
 {
     [super viewDidLoad];
     
-    NSAssert(self.facebookId && self.instagramId && self.instagramRedirect, @"JMPhotoPickerController::viewDidLoad - Social credentials not initialized");
+    //verify required properties
+    if (!self.facebookId || !self.instagramId || !self.instagramRedirect) {
+        [self panic:[JMPPError createErrorWithString:@"JMPhotoPickerController::viewDidLoad - Social credentials not initialized"]];
+    }
     
-    /*
-    //register the NIB
-    UINib *cellNibUser = [UINib nibWithNibName:kCollectionCellNib bundle:[NSBundle mainBundle]];
-    [self.collectionViewPhotos registerNib:cellNibUser forCellWithReuseIdentifier:kCollectionCellReuseId];
-     */
-
     //load the folders for the current data source
     [self showSelectedDataSourceButton:self.buttonLibrary];
-    [self loadAlbumsWithSuccess:nil andFailure:^(NSError *error) {
-        
-        [JMPPUtils logDebug:@"JMPhotoPickerController::viewDidLoad - Failed to load photo library: %@", error.localizedDescription];
-        dispatch_async(dispatch_get_main_queue(), ^ {
-            [self dismissViewControllerAnimated:YES completion:^{
-                if (self.failureBlock) self.failureBlock(error);
-            }];
-        });
-        
-    }];
+    [self loadAlbumsWithSuccess:nil andFailure:^(NSError *error) { [self panic:error]; }];
 }
 
 - (BOOL)prefersStatusBarHidden
 {
     return YES;
+}
+
+-(UIStatusBarAnimation)preferredStatusBarUpdateAnimation
+{
+    return UIStatusBarAnimationSlide;
 }
 
 ////////////////////////////////////////////////////////////////
@@ -439,8 +444,6 @@
 {
     [self.currentDataSource loadAlbumsWithSuccess:^(NSArray *results) {
         
-        NSAssert([results isKindOfClass:[NSArray class]] && results.count > 0, @"JMPhotoPickerController::loadAlbumsWithSuccess - Invalid response.");
-        
         [self setArrayAlbums:results];
         [self.tableViewAlbums reloadData];
         [self switchToAlbumWithIndex:0];
@@ -462,7 +465,18 @@
         return;
     }
 
-    NSAssert(index < self.arrayAlbums.count, @"JMPhotoPickerController::switchToAlbumWithIndex - Attempt to switch to album with index %i when there are only %i albums", (int)index, (int)self.arrayAlbums.count);
+    //do some param error checking
+    if (!self.arrayAlbums || self.arrayAlbums.count == 0) {
+        [self panic:[JMPPError createErrorWithString:@"No albums found"]];
+        return;
+    }
+
+    if (index >= self.arrayAlbums.count) {
+        [self panic:[JMPPError createErrorWithString:@"Inavlid album index"]];
+        return;
+    }
+
+    //switch current album to selected album
     [self setCurrentAlbum:self.arrayAlbums[index]];
     
     //update the folder drop down button
@@ -478,7 +492,9 @@
         [self collectionView:self.collectionViewPhotos didSelectItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
 
     } else {
+        
         [self.imageViewPhoto setImage:nil];
+        
     }
 }
 

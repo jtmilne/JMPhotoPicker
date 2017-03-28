@@ -211,7 +211,17 @@
 
 - (void)loadPhotoFromAlbum:(JMPPAlbum *)album withIndex:(NSUInteger)index andMinPixels:(NSUInteger)minPixels andSuccess:(JMPPSuccess)success andFailure:(JMPPFailure)failure
 {
-    NSAssert(self.accessToken, @"JMPPDataSourceInstagram::loadPhotoFromAlbum - Missing Instagram account.");
+    //confirm access
+    if (!self.accessToken) {
+        
+        [self requestAccessWithSuccess:^(id result) {
+            [self loadPhotoFromAlbum:album withIndex:index andMinPixels:minPixels andSuccess:success andFailure:failure];
+        } andFailure:^(NSError *error) {
+            if (failure) failure(error);
+        }];
+        return;
+        
+    }
     
     //get the meta data for this photo
     [self loadPhotoDataForAlbum:album andIndex:index withSuccess:^(NSDictionary *dictPhoto) {

@@ -44,6 +44,8 @@
 
 - (void)prepareForReuse
 {
+    [super prepareForReuse];
+
     //reset the cell
     [self.imageViewAlbumCover setImage:nil];
     [self.activityIndicator setHidden:NO];
