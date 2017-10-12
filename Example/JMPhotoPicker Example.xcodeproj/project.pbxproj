@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		F50415091D9B412D000BBD8A /* JMPhotoPicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F50415081D9B412D000BBD8A /* JMPhotoPicker.storyboard */; };
 		F504151D1D9B8A2C000BBD8A /* JMPhotoPickerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F504151C1D9B8A2C000BBD8A /* JMPhotoPickerCollectionViewCell.m */; };
+		F5C3C1F61F8FF4EC003DD9DC /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5C3C1F31F8FF4EC003DD9DC /* Bolts.framework */; };
+		F5C3C1F71F8FF4EC003DD9DC /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5C3C1F41F8FF4EC003DD9DC /* FBSDKCoreKit.framework */; };
+		F5C3C1F81F8FF4EC003DD9DC /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5C3C1F51F8FF4EC003DD9DC /* FBSDKLoginKit.framework */; };
 		F5D7D70F1D54534600AC6E25 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D7D70E1D54534600AC6E25 /* main.m */; };
 		F5D7D7121D54534600AC6E25 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D7D7111D54534600AC6E25 /* AppDelegate.m */; };
 		F5D7D7151D54534600AC6E25 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D7D7141D54534600AC6E25 /* ViewController.m */; };
@@ -47,6 +50,9 @@
 		F50415081D9B412D000BBD8A /* JMPhotoPicker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = JMPhotoPicker.storyboard; sourceTree = "<group>"; };
 		F504151B1D9B8A2C000BBD8A /* JMPhotoPickerCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMPhotoPickerCollectionViewCell.h; sourceTree = "<group>"; };
 		F504151C1D9B8A2C000BBD8A /* JMPhotoPickerCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMPhotoPickerCollectionViewCell.m; sourceTree = "<group>"; };
+		F5C3C1F31F8FF4EC003DD9DC /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		F5C3C1F41F8FF4EC003DD9DC /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		F5C3C1F51F8FF4EC003DD9DC /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		F5D7D70A1D54534600AC6E25 /* JMPhotoPicker Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "JMPhotoPicker Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5D7D70E1D54534600AC6E25 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F5D7D7101D54534600AC6E25 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -118,12 +124,25 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5C3C1F61F8FF4EC003DD9DC /* Bolts.framework in Frameworks */,
+				F5C3C1F71F8FF4EC003DD9DC /* FBSDKCoreKit.framework in Frameworks */,
+				F5C3C1F81F8FF4EC003DD9DC /* FBSDKLoginKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F5C3C1F21F8FF4EC003DD9DC /* Facebook */ = {
+			isa = PBXGroup;
+			children = (
+				F5C3C1F31F8FF4EC003DD9DC /* Bolts.framework */,
+				F5C3C1F41F8FF4EC003DD9DC /* FBSDKCoreKit.framework */,
+				F5C3C1F51F8FF4EC003DD9DC /* FBSDKLoginKit.framework */,
+			);
+			path = Facebook;
+			sourceTree = "<group>";
+		};
 		F5D7D7011D54534600AC6E25 = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +162,7 @@
 		F5D7D70C1D54534600AC6E25 /* JMPhotoPicker Example */ = {
 			isa = PBXGroup;
 			children = (
+				F5C3C1F21F8FF4EC003DD9DC /* Facebook */,
 				F5D7D7241D5454DB00AC6E25 /* JMPhotoPicker */,
 				F5D7D7101D54534600AC6E25 /* AppDelegate.h */,
 				F5D7D7111D54534600AC6E25 /* AppDelegate.m */,
@@ -451,8 +471,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DELETEME = j;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "${SRCROOT}/**";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -467,10 +489,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
@@ -497,8 +521,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DELETEME = j;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "${SRCROOT}/**";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -507,9 +533,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -518,6 +546,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/JMPhotoPicker\\ Example/Facebook",
+					"$(PROJECT_DIR)/JMPhotoPicker\\ Example/Facebook",
+					"$(PROJECT_DIR)/JMPhotoPicker\\ Example/Facebook",
+				);
 				INFOPLIST_FILE = "JMPhotoPicker Example/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -530,6 +564,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/JMPhotoPicker\\ Example/Facebook",
+					"$(PROJECT_DIR)/JMPhotoPicker\\ Example/Facebook",
+					"$(PROJECT_DIR)/JMPhotoPicker\\ Example/Facebook",
+				);
 				INFOPLIST_FILE = "JMPhotoPicker Example/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
