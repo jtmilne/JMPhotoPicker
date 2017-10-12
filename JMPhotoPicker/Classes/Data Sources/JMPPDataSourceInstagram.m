@@ -62,7 +62,7 @@
 
 - (void)requestAccessWithSuccess:(JMPPSuccess)success andFailure:(JMPPFailure)failure
 {
-    NSAssert(self.instagramId, @"JMPhotoPicker not properly initialized. Missing Instagram Client Id.");
+    NSAssert(self.instagramId && (self.instagramId.length > 1), @"JMPhotoPicker not properly initialized. Missing Instagram Client Id.");
     
     if (self.accessToken) {
         if (success) success(nil);

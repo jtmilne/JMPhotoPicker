@@ -35,15 +35,14 @@
 
 @interface JMPhotoPickerController : UIViewController
 
-@property (nonatomic, copy) NSString *facebookId;
 @property (nonatomic, copy) NSString *instagramId;
 @property (nonatomic, copy) NSString *instagramRedirect;
 @property (nonatomic) BOOL instagramSandboxMode;
 @property (nonatomic, copy) JMPPSuccess successBlock;
 @property (nonatomic, copy) JMPPFailure failureBlock;
 
-+ (void)presentWithViewController:(UIViewController *)viewController andFacebookId:(NSString *)facebookId andInstagramId:(NSString *)instagramId andInstagramRedirect:(NSString *)instagramRedirect andSuccess:(JMPPSuccess)successBlock andFailure:(JMPPFailure)failureBlock;
++ (void)presentWithViewController:(UIViewController *)viewController andInstagramId:(NSString *)instagramId andInstagramRedirect:(NSString *)instagramRedirect andSuccess:(JMPPSuccess)successBlock andFailure:(JMPPFailure)failureBlock;
 
-+ (void)presentWithViewController:(UIViewController *)viewController andFacebookId:(NSString *)facebookId andInstagramId:(NSString *)instagramId andInstagramRedirect:(NSString *)instagramRedirect andInstagramSandboxMode:(BOOL)instagramSandboxMode andSuccess:(JMPPSuccess)successBlock andFailure:(JMPPFailure)failureBlock;
++ (void)presentWithViewController:(UIViewController *)viewController andInstagramId:(NSString *)instagramId andInstagramRedirect:(NSString *)instagramRedirect andInstagramSandboxMode:(BOOL)instagramSandboxMode andSuccess:(JMPPSuccess)successBlock andFailure:(JMPPFailure)failureBlock;
 
 @end

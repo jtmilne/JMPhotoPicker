@@ -20,21 +20,21 @@
 
 
 #import "JMPPDataSourceFacebook.h"
-#import <Accounts/Accounts.h>
-#import <Social/Social.h>
 #import "SDWebImageManager.h"
 #import "JMPPUtils.h"
 #import "JMPPAlbum.h"
 #import "JMPPStrings.h"
 #import "JMPPError.h"
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <FBSDKCoreKit/FBSDKAccessToken.h>
+#import <FBSDKCoreKit/FBSDKGraphRequest.h>
 
+#define kFacebookPermissions    @[@"user_photos"]
 #define kPhotosPerRequest       @"100"
 
 @interface JMPPDataSourceFacebook()
 
-@property (nonatomic, strong) ACAccountStore *accountStore;
-@property (nonatomic, strong) ACAccount *accountFacebook;
-
+- (BOOL)checkPermissions;
 - (void)loadPhotoDataForAlbum:(JMPPAlbum *)album andIndex:(NSUInteger)index withSuccess:(JMPPSuccess)success andFailure:(JMPPFailure)failure;
 - (NSDictionary *)findBestImageFromImages:(NSArray *)arrayImages withMinPixels:(NSUInteger)minPixels;
 
@@ -46,103 +46,53 @@
 #pragma mark JMPhotoPickerDataSource Delegate Methods
 ////////////////////////////////////////////////////////////////
 
+- (BOOL)checkPermissions
+{
+    for (NSString *permission in kFacebookPermissions) {
+        if (![[FBSDKAccessToken currentAccessToken] hasGranted:permission]) return NO;
+    }
+    return YES;
+}
+
 - (void)requestAccessWithSuccess:(JMPPSuccess)success andFailure:(JMPPFailure)failure
 {
-    NSAssert(self.facebookId, @"JMPhotoPicker not properly initialized. Missing Facebook App Id.");
+    NSAssert(self.delegate, @"JMPPDataSourceFacebook::requestAccessWithSuccess - delegate view controller not set.");
 
-    if (![SLComposeViewController isAvailableForServiceType:ACAccountTypeIdentifierFacebook]) {
-        if (failure) failure([JMPPError createErrorWithString:kErrMsgFBNoAccount]);
+    //is user already logged in?
+    if ([FBSDKAccessToken currentAccessToken] && [[FBSDKAccessToken currentAccessToken] hasGranted:@"user_photos"]) {
+        
+        [JMPPUtils logDebug:@"JMPPDataSourceFacebook::requestAccessWithSuccess - Facebook access previously granted."];
+        if (success) success(nil);
         return;
+        
     }
     
-    NSDictionary *options = @{
-                              ACFacebookAppIdKey : self.facebookId,
-                              ACFacebookPermissionsKey : @[@"user_photos"]
-                              };
-    
-    //request access
-    [self setAccountStore:[[ACAccountStore alloc] init]];
-    ACAccountType *accountType = [self.accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierFacebook];
-    [self.accountStore requestAccessToAccountsWithType:accountType options:options completion:^(BOOL granted, NSError *error){
+    //use the login manager
+    FBSDKLoginManager *fbLoginManager = [FBSDKLoginManager new];
+    [fbLoginManager setLoginBehavior:FBSDKLoginBehaviorNative];
+    [fbLoginManager logInWithReadPermissions:kFacebookPermissions fromViewController:self.delegate handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
         
         //check for an error
         if (error) {
-            
-            //handle errors gracefully
-            NSString *errorMsg = nil;
-            if ([[error domain] isEqualToString:ACErrorDomain]) {
-                
-                // The following error codes and descriptions are found in ACError.h
-                switch ([error code]) {
-                    case ACErrorAccountNotFound:;
-                        errorMsg = kErrMsgFBNoAccount;
-                        break;
-                    case ACErrorPermissionDenied:;
-                        errorMsg = kErrMsgFBDenied;
-                        break;
-                    case ACErrorUnknown:
-                    default:;
-                        errorMsg = [error localizedDescription];
-                        break;
-                }
-            } else {
-                // handle other error domains
-                errorMsg = [error localizedDescription];
-            }
-            
-            [JMPPUtils logDebug:@"JMPPDataSourceFacebook::requestAccessWithSuccess - Error logging in with Facebook account: %@", errorMsg];
-            if (failure) failure([JMPPError createErrorWithString:errorMsg]);
+            [JMPPUtils logDebug:@"JMPPDataSourceFacebook::requestAccessWithSuccess - Error logging in with Facebook account: %@", [error localizedDescription]];
+            if (failure) failure(error);
             return;
         }
         
-        //check if access was granted
-        if (!granted) {
-            [JMPPUtils logDebug:@"JMPPDataSourceFacebook::requestAccessWithSuccess - Facebook account access denied."];
+        if (result.isCancelled) {
+            [JMPPUtils logDebug:@"JMPPDataSourceFacebook::requestAccessWithSuccess - User canceled Facebook login"];
+            if (failure) failure([JMPPError errorUserCanceled]);
+            return;
+        }
+        
+        if (![self checkPermissions]) {
+            [JMPPUtils logDebug:@"JMPPDataSourceFacebook::requestAccessWithSuccess - User denied permissions."];
             if (failure) failure([JMPPError createErrorWithString:kErrMsgFBDenied]);
             return;
         }
         
-        // Check if the users has setup at least one account of this type
-        NSArray *accounts = [self.accountStore accountsWithAccountType:accountType];
-        if (accounts.count < 1) {
-            [JMPPUtils logDebug:@"JMPPDataSourceFacebook::requestAccessWithSuccess - Access granted, but no Facebook account found. Should not happen."];
-            if (failure) failure([JMPPError createErrorWithString:kErrMsgFBNoAccount]);
-            return;
-        }
-        
-        //save the account for future acccess
-        [self setAccountFacebook:[accounts lastObject]];
-        
-        //make sure there is an access token
-        if (self.accountFacebook.credential.oauthToken) {
-            
-            [JMPPUtils logDebug:@"JMPPDataSourceFacebook::requestAccessWithSuccess - Facebook access granted."];
-            success(nil);
-            return;
-
-        }
-        
-        //try and renew the credential
-        [self.accountStore renewCredentialsForAccount:self.accountFacebook completion:^(ACAccountCredentialRenewResult renewResult, NSError *error) {
-            
-            if (error) {
-                
-                [JMPPUtils logDebug:@"JMPPDataSourceFacebook::requestAccessWithSuccess - Error renewing credential: %@", error.localizedDescription];
-                if (failure) failure(error);
-                
-            } else if (renewResult != ACAccountCredentialRenewResultRenewed) {
-                
-                [JMPPUtils logDebug:@"JMPPDataSourceFacebook::requestAccessWithSuccess - App is no longer authorized."];
-                if (failure) failure([JMPPError createErrorWithString:kErrMsgFBExpired]);
-                
-            } else {
-                
-                [JMPPUtils logDebug:@"JMPPDataSourceFacebook::requestAccessWithSuccess - Facebook access granted."];
-                if (success) success(nil);
-                
-            }
-            
-        }];
+        [JMPPUtils logDebug:@"JMPPDataSourceFacebook::requestAccessWithSuccess - Facebook access granted."];
+        if (success) success(nil);
         
     }];
 }
@@ -150,7 +100,7 @@
 - (void)loadAlbumsWithSuccess:(JMPPSuccess)success andFailure:(JMPPFailure)failure
 {
     //confirm access
-    if (!self.accountFacebook) {
+    if (![FBSDKAccessToken currentAccessToken]) {
         
         [self requestAccessWithSuccess:^(id result) {
             [self loadAlbumsWithSuccess:success andFailure:failure];
@@ -161,12 +111,10 @@
         
     }
     
-    NSURL *urlAlbums = [NSURL URLWithString:@"https://graph.facebook.com/me/albums"];
+    //Make graph request for me to get the id and other user info
     NSDictionary *params = @{@"limit":@"100", @"fields":@"id,name,count"};
-    SLRequest *requestMe = [SLRequest requestForServiceType:SLServiceTypeFacebook requestMethod:SLRequestMethodGET URL:urlAlbums parameters:params];
-    requestMe.account = self.accountFacebook;
-    
-    [requestMe performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
+    FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc] initWithGraphPath:@"me/albums" parameters:params];
+    [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
         
         if (error) {
             [JMPPUtils logDebug:@"JMPPDataSourceFacebook::loadAlbumsWithSuccess - Error accessing Facebook albums: %@", error.localizedDescription];
@@ -174,9 +122,7 @@
             return;
         }
         
-        NSError *jsonError = nil;
-        NSDictionary *dictResponse = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:&jsonError];
-        NSArray *arrayData = dictResponse[@"data"];
+        NSArray *arrayData = result[@"data"];
         if (!arrayData || ![arrayData isKindOfClass:[NSArray class]]) {
             if (failure) failure([JMPPError createErrorWithString:kErrMsgFBData]);
             return;
@@ -186,7 +132,7 @@
         for (NSDictionary *dictAlbum in arrayData) {
             
             if ([dictAlbum[@"count"] intValue] > 0) {
-            
+                
                 JMPPAlbum *albumNew = [JMPPAlbum new];
                 [albumNew setIdentifier:dictAlbum[@"id"]];
                 [albumNew setName:dictAlbum[@"name"]];
@@ -194,7 +140,7 @@
                 
                 if ([albumNew.name isEqualToString:@"Profile Pictures"]) [arrayAlbums insertObject:albumNew atIndex:0];
                 else [arrayAlbums addObject:albumNew];
-
+                
             }
             
         }
@@ -208,17 +154,17 @@
                 [self loadPhotoFromAlbum:albumIterate withIndex:0 andMinPixels:0 andSuccess:nil andFailure:nil];
             }
         });
-        
+    
     }];
 }
 
 - (void)loadCoverPhotoForAlbum:(JMPPAlbum *)album withMinPixels:(NSUInteger)minPixels andSuccess:(JMPPSuccess)success andFailure:(JMPPFailure)failure
 {
-    NSAssert(self.accountFacebook, @"JMPPDataSourceFacebook::loadCoverPhotoForAlbum - Missing Facebook account.");
+    NSAssert([FBSDKAccessToken currentAccessToken], @"JMPPDataSourceFacebook::loadCoverPhotoForAlbum - Missing Facebook access token.");
 
     //load the photo using SDWebImageManager for caching
     NSString *strType = ([UIScreen mainScreen].scale > 1.0) ? @"album" : @"small";
-    NSString *strUrl = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=%@&access_token=%@", album.identifier, strType, self.accountFacebook.credential.oauthToken];
+    NSString *strUrl = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=%@&access_token=%@", album.identifier, strType, [FBSDKAccessToken currentAccessToken].tokenString];
     
     SDWebImageOptions options = (SDWebImageRetryFailed | SDWebImageContinueInBackground);
     [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:strUrl] options:options progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
@@ -242,7 +188,7 @@
 
 - (void)loadPhotoFromAlbum:(JMPPAlbum *)album withIndex:(NSUInteger)index andMinPixels:(NSUInteger)minPixels andSuccess:(JMPPSuccess)success andFailure:(JMPPFailure)failure
 {
-    NSAssert(self.accountFacebook, @"JMPPDataSourceFacebook::loadPhotoFromAlbum - Missing Facebook account.");
+    NSAssert([FBSDKAccessToken currentAccessToken], @"JMPPDataSourceFacebook::loadPhotoFromAlbum - Missing Facebook access token.");
     
     //get the meta data for this photo
     [self loadPhotoDataForAlbum:album andIndex:index withSuccess:^(NSDictionary *dictPhoto) {
@@ -301,17 +247,16 @@
         }
         
         //create a request
-        SLRequest *requestPhotos;
+        FBSDKGraphRequest *requestPhotos;
         if (album.nextPhotos) {
-            
-            requestPhotos = [SLRequest requestForServiceType:SLServiceTypeFacebook requestMethod:SLRequestMethodGET URL:[NSURL URLWithString:album.nextPhotos] parameters:nil];
+
+            requestPhotos = [[FBSDKGraphRequest alloc] initWithGraphPath:album.nextPhotos parameters:nil];
             
         } else if (!album.photos) {
             
             NSDictionary *params = @{@"limit":kPhotosPerRequest, @"fields":@"id,images"};
-            NSString *strUrl = [NSString stringWithFormat:@"https://graph.facebook.com/%@/photos", album.identifier];
-            requestPhotos = [SLRequest requestForServiceType:SLServiceTypeFacebook requestMethod:SLRequestMethodGET URL:[NSURL URLWithString:strUrl] parameters:params];
-            requestPhotos.account = self.accountFacebook;
+            NSString *strPath = [NSString stringWithFormat:@"%@/photos", album.identifier];
+            requestPhotos = [[FBSDKGraphRequest alloc] initWithGraphPath:strPath parameters:params];
             
         }
         
@@ -320,7 +265,7 @@
         dispatch_semaphore_t semaBlock = dispatch_semaphore_create(0);
         
         //execute the request
-        [requestPhotos performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
+        [requestPhotos startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
             
             if (error) {
                 [JMPPUtils logDebug:@"JMPPDataSourceFacebook::loadPhotosForAlbum - Error loading Facebook photos from album: %@", error.localizedDescription];
@@ -329,26 +274,16 @@
                 return;
             }
             
-            //decode the response
-            NSError *jsonError = nil;
-            NSDictionary *dictResponse = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:&jsonError];
-            if (jsonError || !dictResponse || ![dictResponse isKindOfClass:[NSDictionary class]]) {
-                [JMPPUtils logDebug:@"JMPPDataSourceFacebook::loadPhotosForAlbum - Error decoding Facebook response: %@", (jsonError) ? jsonError.localizedDescription : @"Invalid dictionary"];
-                requestError = [JMPPError createErrorWithString:kErrMsgFBData];
-                dispatch_semaphore_signal(semaBlock);
-                return;
-            }
-            
             //check for error
-            if (dictResponse[@"error"]) {
-                [JMPPUtils logDebug:@"JMPPDataSourceFacebook::loadPhotosForAlbum - Error returned from  Facebook: %@", dictResponse[@"error"][@"message"]];
-                requestError = [JMPPError createErrorWithString:dictResponse[@"error"][@"message"]];
+            if (result[@"error"]) {
+                [JMPPUtils logDebug:@"JMPPDataSourceFacebook::loadPhotosForAlbum - Error returned from  Facebook: %@", result[@"error"][@"message"]];
+                requestError = [JMPPError createErrorWithString:result[@"error"][@"message"]];
                 dispatch_semaphore_signal(semaBlock);
                 return;
             }
             
             //get the array
-            NSMutableArray *arrayPhotos = [NSMutableArray arrayWithArray:dictResponse[@"data"]];
+            NSMutableArray *arrayPhotos = [NSMutableArray arrayWithArray:result[@"data"]];
             if (!arrayPhotos || ![arrayPhotos isKindOfClass:[NSArray class]]) {
                 [JMPPUtils logDebug:@"JMPPDataSourceFacebook::loadPhotosForAlbum - Error decoding Facebook response"];
                 requestError = [JMPPError createErrorWithString:kErrMsgFBData];
@@ -359,7 +294,7 @@
             //add the photos to the dictionary
             if (!album.photos) [album setPhotos:arrayPhotos];
             else [album setPhotos:[album.photos arrayByAddingObjectsFromArray:arrayPhotos]];
-            if (dictResponse[@"paging"][@"next"]) [album setNextPhotos:dictResponse[@"paging"][@"next"]];
+            if (result[@"paging"][@"next"]) [album setNextPhotos:result[@"paging"][@"next"]];
             else [album setNextPhotos:nil];
             
             //make sure we haven't added too many photos - multithreading check

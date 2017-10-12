@@ -26,11 +26,11 @@
 //********UPDATE CREDENTIALS********
 
 //Note:App bundle identifier must match Facebook App's bundle identifier
-#define kFacebookId             @""
 #define kInstagramId            @""
 #define kInstagramRedirect      @""
 #define kInstagramSandbox       NO //indicates we will get max 20 images back in sandbox mode
 //NOTE: be sure to set NSPhotoLibraryUsageDescription in Info.plist or iOS 10 will exit/crash
+//NOTE: Facebook SDK must be properly setup in Info.plist (see FB docs)
 
 //*********************************
 
@@ -46,7 +46,7 @@
 
 - (IBAction)actionJMPhotoPicker:(id)sender
 {
-    [JMPhotoPickerController presentWithViewController:self andFacebookId:kFacebookId andInstagramId:kInstagramId andInstagramRedirect:kInstagramRedirect andInstagramSandboxMode:kInstagramSandbox andSuccess:^(UIImage *image) {
+    [JMPhotoPickerController presentWithViewController:self andInstagramId:kInstagramId andInstagramRedirect:kInstagramRedirect andInstagramSandboxMode:kInstagramSandbox andSuccess:^(UIImage *image) {
         if (image) [self.imageView setImage:image];
     } andFailure:^(NSError *error) {
         [JMPPUtils showAlert:error.localizedDescription];

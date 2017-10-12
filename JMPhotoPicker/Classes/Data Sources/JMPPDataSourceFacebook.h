@@ -24,6 +24,6 @@
 
 @interface JMPPDataSourceFacebook : NSObject <JMPhotoPickerDataSource>
 
-@property (nonatomic, copy) NSString *facebookId;
+@property (nonatomic, strong) UIViewController *delegate;
 
 @end

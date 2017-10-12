@@ -106,19 +106,18 @@
 #pragma mark Class Methods
 ////////////////////////////////////////////////////////////////
 
-+ (void)presentWithViewController:(UIViewController *)viewController andFacebookId:(NSString *)facebookId andInstagramId:(NSString *)instagramId andInstagramRedirect:(NSString *)instagramRedirect andSuccess:(JMPPSuccess)successBlock andFailure:(JMPPFailure)failureBlock;
++ (void)presentWithViewController:(UIViewController *)viewController andInstagramId:(NSString *)instagramId andInstagramRedirect:(NSString *)instagramRedirect andSuccess:(JMPPSuccess)successBlock andFailure:(JMPPFailure)failureBlock;
 {
-    [JMPhotoPickerController presentWithViewController:viewController andFacebookId:facebookId andInstagramId:instagramId andInstagramRedirect:instagramRedirect andInstagramSandboxMode:NO andSuccess:successBlock andFailure:failureBlock];
+    [JMPhotoPickerController presentWithViewController:viewController andInstagramId:instagramId andInstagramRedirect:instagramRedirect andInstagramSandboxMode:NO andSuccess:successBlock andFailure:failureBlock];
 }
 
-+ (void)presentWithViewController:(UIViewController *)viewController andFacebookId:(NSString *)facebookId andInstagramId:(NSString *)instagramId andInstagramRedirect:(NSString *)instagramRedirect andInstagramSandboxMode:(BOOL)instagramSandboxMode andSuccess:(JMPPSuccess)successBlock andFailure:(JMPPFailure)failureBlock;
++ (void)presentWithViewController:(UIViewController *)viewController andInstagramId:(NSString *)instagramId andInstagramRedirect:(NSString *)instagramRedirect andInstagramSandboxMode:(BOOL)instagramSandboxMode andSuccess:(JMPPSuccess)successBlock andFailure:(JMPPFailure)failureBlock;
 {
     //    JMPhotoPickerController *picker = [[JMPhotoPickerController alloc] init];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"JMPhotoPicker" bundle:nil];
     JMPhotoPickerController *picker = [storyboard instantiateViewControllerWithIdentifier:@"JMPPViewController"];
     [picker setModalPresentationStyle:UIModalPresentationFullScreen];
     [picker setModalPresentationCapturesStatusBarAppearance:YES];
-    [picker setFacebookId:facebookId];
     [picker setInstagramId:instagramId];
     [picker setInstagramRedirect:instagramRedirect];
     [picker setInstagramSandboxMode:instagramSandboxMode];
@@ -157,6 +156,7 @@
     [self setInstagramSandboxMode:NO];
     [self setLibraryDataSource:[[JMPPDataSourceLibrary alloc] init]];
     [self setFacebookDataSource:[[JMPPDataSourceFacebook alloc] init]];
+    [self.facebookDataSource setDelegate:self];
     [self setInstagramDataSource:[[JMPPDataSourceInstagram alloc] init]];
     [self setCurrentDataSource:self.libraryDataSource];
 }
@@ -174,12 +174,6 @@
 ////////////////////////////////////////////////////////////////
 #pragma mark Custom Setters
 ////////////////////////////////////////////////////////////////
-
-- (void)setFacebookId:(NSString *)facebookId
-{
-    _facebookId = [facebookId copy];
-    [self.facebookDataSource setFacebookId:facebookId];
-}
 
 - (void)setInstagramId:(NSString *)instagramId
 {
@@ -208,7 +202,7 @@
     [super viewDidLoad];
     
     //verify required properties
-    if (!self.facebookId || !self.instagramId || !self.instagramRedirect) {
+    if (!self.instagramId || !self.instagramRedirect) {
         [self panic:[JMPPError createErrorWithString:@"JMPhotoPickerController::viewDidLoad - Social credentials not initialized"]];
     }
     
